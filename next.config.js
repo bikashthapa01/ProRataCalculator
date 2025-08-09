@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable React strict mode for better development experience
+  // Production optimizations
+  output: "standalone",
+  compress: true,
+  poweredByHeader: false,
   reactStrictMode: true,
 
-  // Configure images
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
+
+  // Image optimization
   images: {
-    domains: [],
+    domains: ["proratacalculator.co.uk"],
     formats: ["image/webp", "image/avif"],
   },
 
@@ -25,7 +33,7 @@ const nextConfig = {
           },
           {
             key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
+            value: "strict-origin-when-cross-origin",
           },
           {
             key: "X-DNS-Prefetch-Control",
@@ -35,14 +43,82 @@ const nextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
         ],
       },
     ];
   },
 
-  // Compiler options for better performance
+  // SEO-friendly redirects
+  async redirects() {
+    return [
+      {
+        source: "/calculator",
+        destination: "/pro-rata-salary-calculator",
+        permanent: true,
+      },
+      {
+        source: "/salary",
+        destination: "/pro-rata-salary-calculator",
+        permanent: true,
+      },
+      {
+        source: "/maternity",
+        destination: "/pro-rata-maternity-pay-calculator",
+        permanent: true,
+      },
+      {
+        source: "/paternity",
+        destination: "/pro-rata-paternity-pay-calculator",
+        permanent: true,
+      },
+      {
+        source: "/ssp",
+        destination: "/pro-rata-sick-pay-calculator",
+        permanent: true,
+      },
+      {
+        source: "/sick-pay",
+        destination: "/pro-rata-sick-pay-calculator",
+        permanent: true,
+      },
+      {
+        source: "/redundancy",
+        destination: "/pro-rata-redundancy-pay-calculator",
+        permanent: true,
+      },
+      {
+        source: "/bonus",
+        destination: "/pro-rata-bonus-calculator",
+        permanent: true,
+      },
+      {
+        source: "/holiday",
+        destination: "/pro-rata-holiday-calculator",
+        permanent: true,
+      },
+      {
+        source: "/term-time",
+        destination: "/term-time-only-salary-calculator",
+        permanent: true,
+      },
+      {
+        source: "/tto",
+        destination: "/term-time-only-salary-calculator",
+        permanent: true,
+      },
+    ];
+  },
+
+  // Compiler options for production
   compiler: {
-    // Remove console.logs in production
     removeConsole: process.env.NODE_ENV === "production",
   },
 };

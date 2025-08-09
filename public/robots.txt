@@ -7,9 +7,24 @@ Sitemap: https://proratacalculator.co.uk/sitemap.xml
 # Crawl-delay
 Crawl-delay: 1
 
-# Disallow admin areas (if any)
+# Disallow admin areas (if any in future)
 Disallow: /admin/
 Disallow: /api/
+
+# Allow all calculators and pages
+Allow: /pro-rata-salary-calculator
+Allow: /pro-rata-holiday-calculator
+Allow: /pro-rata-redundancy-pay-calculator
+Allow: /pro-rata-maternity-pay-calculator
+Allow: /pro-rata-sick-pay-calculator
+Allow: /pro-rata-bonus-calculator
+Allow: /pro-rata-paternity-pay-calculator
+Allow: /term-time-only-salary-calculator
+Allow: /faq
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 
 # Allow all other pages
 Allow: /
