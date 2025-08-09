@@ -105,7 +105,13 @@ const faqData: FAQItem[] = [
     answer:
       "Enter your FTE salary, contracted hours, term weeks (typically 39), and paid holiday weeks (typically 5.6). The calculator applies both an hours factor (part-time reduction) and TTO factor (reduced working year) to determine your annual salary.",
     category: "Education & Schools",
-    tags: ["term time only", "tto", "school jobs", "education", "teaching assistant"],
+    tags: [
+      "term time only",
+      "tto",
+      "school jobs",
+      "education",
+      "teaching assistant",
+    ],
   },
   {
     id: "tto-vs-part-time",
@@ -283,7 +289,13 @@ const faqData: FAQItem[] = [
     answer:
       "Yes, the TTO calculator is perfect for school HR departments calculating support staff, teaching assistant, and administrative roles. It handles the complex interaction between part-time hours and term-time working patterns.",
     category: "Business Use",
-    tags: ["schools", "hr", "term time", "teaching assistants", "support staff"],
+    tags: [
+      "schools",
+      "hr",
+      "term time",
+      "teaching assistants",
+      "support staff",
+    ],
   },
   {
     id: "maternity-cover",
@@ -351,7 +363,7 @@ const categories = [
   "Calculator Usage",
   "Statutory Pay",
   "Education & Schools",
-  "Redundancy & Bonuses", 
+  "Redundancy & Bonuses",
   "Holiday Entitlement",
   "UK Employment Law",
   "Part-time Work",
@@ -406,9 +418,10 @@ export default function FAQPage() {
                 </span>
               </h1>
               <p className="text-primary-secondary text-lg max-w-3xl mx-auto">
-                Find answers to common questions about our UK salary calculators, 
-                including pro rata pay, statutory payments, term-time contracts, 
-                redundancy, bonuses, and UK employment law for 2025.
+                Find answers to common questions about our UK salary
+                calculators, including pro rata pay, statutory payments,
+                term-time contracts, redundancy, bonuses, and UK employment law
+                for 2025.
               </p>
             </motion.div>
 
@@ -570,11 +583,11 @@ export default function FAQPage() {
                     Try Calculator
                   </h3>
                   <p className="text-primary-secondary mb-4">
-                    Ready to calculate your pro rata salary? Use our free
-                    calculator now.
+                    Ready to calculate your salary, benefits, or statutory pay?
+                    Choose from our complete range of UK calculators.
                   </p>
                   <a href="/" className="button-primary">
-                    Use Calculator
+                    View All Calculators
                   </a>
                 </div>
               </div>
