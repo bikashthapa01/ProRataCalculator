@@ -65,7 +65,6 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
   const WEEKLY_SSP_RATE = 116.75;
   const MINIMUM_WEEKLY_EARNINGS = 123;
   const MINIMUM_SICK_DAYS = 4;
-  const MAX_SSP_WEEKS = 28;
 
   // Calculate weekly pay if not provided
   let weeklyPay = averageWeeklyPay;
@@ -320,7 +319,6 @@ export function calculateSPP(inputs: SPPInputs): SPPResults {
     averageWeeklyEarnings,
     employmentStartDate,
     expectedWeekOfChildbirth,
-    plannedLeaveStartDate,
     weeksOfLeave,
     annualSalary,
     averageWeeklyHours,
