@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-primary-text font-sans;
+    background: linear-gradient(135deg, #111221 0%, #1a1b2e 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-glass backdrop-blur-[16px] border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-from to-accent-to bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-accent-from to-accent-to;
+  }
+
+  .card-shadow {
+    @apply shadow-card;
+  }
+
+  .button-primary {
+    @apply bg-button-bg hover:bg-button-hover text-button-text font-button px-8 py-4 rounded-button transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  .button-secondary {
+    @apply bg-transparent border border-accent-from text-primary-text hover:bg-accent-from/10 px-8 py-4 rounded-button transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-card border border-white/10 rounded-card px-4 py-3 text-primary-text placeholder:text-primary-secondary focus:outline-none focus:ring-2 focus:ring-accent-from focus:border-transparent transition-all duration-300;
+  }
+
+  .slider-thumb {
+    @apply appearance-none w-6 h-6 bg-accent-from rounded-full cursor-pointer shadow-lg;
+  }
+
+  .slider-track {
+    @apply appearance-none h-2 bg-accent-to rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

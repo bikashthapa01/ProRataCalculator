@@ -1,0 +1,108 @@
+{
+  "designSystem": {
+    "theme": {
+      "mode": "dark",
+      "background": "#111221",
+      "cardBackground": "#18192a",
+      "accentGradient": ["#7c53ff", "#2c2470"],
+      "primaryText": "#F5F7FA",
+      "secondaryText": "#B1B3C7",
+      "highlight": "#9B7FFF",
+      "button": {
+        "background": "#7C53FF",
+        "hoverBackground": "#6a45e6",
+        "text": "#fff",
+        "radius": "9999px"
+      }
+    },
+    "typography": {
+      "fontFamily": "Inter, Arial, sans-serif",
+      "heading": {
+        "fontSize": ["2.5rem", "3.5rem"],
+        "fontWeight": 700,
+        "letterSpacing": "0.01em"
+      },
+      "body": {
+        "fontSize": "1rem",
+        "fontWeight": 400,
+        "lineHeight": "1.7"
+      },
+      "button": {
+        "fontWeight": 600,
+        "fontSize": "1rem"
+      }
+    },
+    "layout": {
+      "containerWidth": "1200px",
+      "paddingX": "2rem",
+      "headerHeight": "64px",
+      "sectionGap": "64px",
+      "cardRadius": "24px",
+      "cardShadow": "0 8px 32px rgba(45,37,102,0.15)"
+    },
+    "structure": {
+      "header": {
+        "layout": "horizontal",
+        "logoLeft": true,
+        "navCenter": true,
+        "ctaRight": true,
+        "items": ["logo", "navLinks", "login", "ctaButton"]
+      },
+      "hero": {
+        "align": "center",
+        "titleSize": "giant",
+        "subtitleSize": "large",
+        "callToAction": "prominent",
+        "buttonStyle": "primary large",
+        "backgroundEffect": "soft radial or glassmorphism"
+      },
+      "mainSection": {
+        "columns": 2,
+        "gap": "32px",
+        "responsive": true,
+        "cardStyle": "elevated with accent gradient or subtle border",
+        "content": [
+          "calculatorCard",
+          "pricingCard"
+        ]
+      },
+      "input": {
+        "slider": {
+          "thumbColor": "#7C53FF",
+          "trackColor": "#2c2470",
+          "labelColor": "#B1B3C7"
+        }
+      }
+    },
+    "components": {
+      "button": {
+        "shape": "pill",
+        "shadow": "soft",
+        "gradient": true,
+        "iconOptional": true
+      },
+      "card": {
+        "borderRadius": "24px",
+        "shadow": true,
+        "gradientAccent": true
+      },
+      "inputSlider": {
+        "style": "minimal, with accent color for progress",
+        "labelPlacement": "top or inline"
+      }
+    },
+    "effects": {
+      "glassmorphism": {
+        "background": "rgba(28, 22, 56, 0.6)",
+        "backdropFilter": "blur(16px)"
+      },
+      "gradientOverlay": {
+        "type": "radial or linear",
+        "opacity": 0.85
+      }
+    },
+    "icons": {
+      "style": "minimal, line, circle background with gradient fill"
+    }
+  }
+}
