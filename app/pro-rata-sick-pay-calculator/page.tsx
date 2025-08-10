@@ -44,6 +44,8 @@ export default function ProRataSickPayCalculatorPage() {
     workingDaysPerWeek: 5,
     sickDays: 7,
     averageWeeklyPay: 0,
+    annualSalary: 0,
+    averageWeeklyHours: 0,
   });
 
   const [results, setResults] = useState<SSPResults | null>(null);
@@ -563,9 +565,10 @@ Calculated using proratacalculator.co.uk`;
             <div className="prose prose-invert max-w-none">
               <p className="text-gray-300 mb-4">
                 Statutory Sick Pay (SSP) is a legal requirement for UK employers
-                to pay eligible employees when they're off work due to illness.
-                For 2025/26, the SSP rate is <strong>£116.75 per week</strong>,
-                paid only for qualifying days (your normal working days).
+                to pay eligible employees when they&apos;re off work due to
+                illness. For 2025/26, the SSP rate is{" "}
+                <strong>£116.75 per week</strong>, paid only for qualifying days
+                (your normal working days).
               </p>
               <p className="text-gray-300 mb-4">
                 SSP is particularly important for part-time workers, as the
@@ -677,9 +680,9 @@ Calculated using proratacalculator.co.uk`;
                     period.
                   </p>
                   <p className="text-gray-300 text-sm mt-2">
-                    <strong>Example:</strong> If you're sick for 7 days but only
-                    work Monday-Wednesday, you'll receive SSP for 3 qualifying
-                    days.
+                    <strong>Example:</strong> If you&apos;re sick for 7 days but
+                    only work Monday-Wednesday, you&apos;ll receive SSP for 3
+                    qualifying days.
                   </p>
                 </div>
               </div>
@@ -709,10 +712,11 @@ Calculated using proratacalculator.co.uk`;
                   How is sick pay calculated for part-time workers?
                 </h3>
                 <p className="text-gray-300">
-                  SSP is paid only for "qualifying days" (your normal working
-                  days). For part-time workers, this means your actual working
-                  days. The daily SSP rate is calculated by dividing the weekly
-                  SSP (£116.75) by your number of qualifying days per week.
+                  SSP is paid only for &quot;qualifying days&quot; (your normal
+                  working days). For part-time workers, this means your actual
+                  working days. The daily SSP rate is calculated by dividing the
+                  weekly SSP (£116.75) by your number of qualifying days per
+                  week.
                 </p>
               </div>
 
@@ -739,10 +743,10 @@ Calculated using proratacalculator.co.uk`;
 
               <div className="border-b border-[#2c2470]/30 pb-6">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  What happens if I don't qualify for SSP?
+                  What happens if I don&apos;t qualify for SSP?
                 </h3>
                 <p className="text-gray-300">
-                  If you don't qualify for SSP, you may be eligible for
+                  If you don&apos;t qualify for SSP, you may be eligible for
                   Employment and Support Allowance (ESA) or Universal Credit.
                   Contact your local Jobcentre Plus or visit GOV.UK for more
                   information.
@@ -757,7 +761,7 @@ Calculated using proratacalculator.co.uk`;
                   Yes, many employers offer enhanced sick pay schemes that pay
                   more than the statutory minimum. Check your employment
                   contract or speak to your HR department for details of your
-                  company's sick pay policy.
+                  company&apos;s sick pay policy.
                 </p>
               </div>
             </div>
