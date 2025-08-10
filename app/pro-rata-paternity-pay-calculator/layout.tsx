@@ -140,51 +140,6 @@ export default function ProRataPaternityPayCalculatorLayout({
         }}
       />
 
-      {/* Schema.org JSON-LD for FAQPage */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Who is eligible for SPP?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "You must be employed by the same employer for at least 26 weeks by the qualifying week (15th week before expected childbirth) and earn at least £125 per week on average. You must also be the biological father, partner, or adoptive parent of the child.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "How is SPP calculated for part-time workers?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "SPP is calculated based on your actual average weekly earnings, regardless of whether you work part-time or full-time. The rate is the lower of £187.18 per week or 90% of your average weekly earnings. No additional pro-rata adjustment is needed if your average weekly earnings already reflect your part-time hours.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What's the SPP weekly rate for 2025?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "For 2025/26, the SPP weekly rate is the lower of £187.18 per week or 90% of your average weekly earnings. This rate applies for up to 2 weeks of paternity leave, which can be taken consecutively or separately within the first 52 weeks after birth.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can I split my paternity leave?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, from April 2024, you can split your 2 weeks of paternity leave into two separate one-week blocks. You can take these at any time within the first 52 weeks after the child's birth, giving you more flexibility than before.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-
       {children}
     </>
   );

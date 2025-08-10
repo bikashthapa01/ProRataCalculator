@@ -188,41 +188,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "How do I use the pro rata calculator?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Enter your full-time salary, select the frequency (yearly, monthly, etc.), choose whether to calculate by hours worked or percentage, input your working hours or percentage, and click 'Calculate'. The calculator will show your pro rata salary for different time periods.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "What is pro rata salary?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Pro rata salary is a proportional salary calculated based on the amount of work you do compared to a full-time position. For example, if you work 20 hours per week instead of 40, your pro rata salary would be 50% of the full-time salary.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "How accurate is the calculator?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Our calculator follows UK employment law and HMRC guidelines for accurate results. However, the results are estimates and should be verified with your employer or HR department for official calculations.",
-                  },
-                },
-              ],
-            }),
-          }}
-        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

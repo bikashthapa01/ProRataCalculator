@@ -194,25 +194,6 @@ export default function FAQ() {
             </div>
           </div>
         </motion.div>
-
-        {/* Schema.org FAQPage JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqData.map((item) => ({
-                "@type": "Question",
-                name: item.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: item.answer,
-                },
-              })),
-            }),
-          }}
-        />
       </div>
     </section>
   );

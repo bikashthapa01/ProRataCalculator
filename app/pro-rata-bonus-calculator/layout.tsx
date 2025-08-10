@@ -143,51 +143,6 @@ export default function ProRataBonusCalculatorLayout({
         }}
       />
 
-      {/* Schema.org JSON-LD for FAQPage */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "How are bonuses pro rated in the UK?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "UK bonuses are typically pro rated based on two factors: part-time hours and partial employment periods. For part-time workers, the bonus is reduced proportionally based on hours worked vs full-time hours. For partial-year employment, the bonus is reduced based on the time actually employed during the bonus period.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Do I get my full bonus if I leave early?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "If you leave before the end of the bonus period, your bonus is usually pro rated based on the time you actually worked. This depends on your employment contract terms and company policy. Most employers will pay a proportional amount based on the period you were employed.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "How does part-time work affect my bonus?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Part-time workers typically receive a pro rata bonus calculated as: (Your weekly hours ÷ Full-time weekly hours) × Full bonus amount. For example, if you work 20 hours and full-time is 40 hours, you'd receive 50% of the full bonus amount.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What if I'm both part-time and started mid-year?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "If you're both part-time and worked for only part of the bonus period, both factors are applied. Your bonus = Full bonus × (Your hours ÷ Full-time hours) × (Days worked ÷ Total days in bonus period). This ensures fair treatment for all employment situations.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-
       {children}
     </>
   );
