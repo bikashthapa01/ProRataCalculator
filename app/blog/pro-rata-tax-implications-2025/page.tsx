@@ -21,6 +21,7 @@ import {
   Zap,
   ArrowUp,
   ArrowDown,
+  Shield,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
