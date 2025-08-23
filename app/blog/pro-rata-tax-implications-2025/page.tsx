@@ -118,12 +118,12 @@ export default function ProRataTaxImplicationsPage() {
                     based on your working period.
                   </p>
                   <a
-                    href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                    href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-highlight hover:text-primary-text transition-colors text-sm font-medium"
                   >
-                    Calculate your tax code →
+                    Check your tax code →
                   </a>
                 </div>
 
@@ -230,12 +230,12 @@ export default function ProRataTaxImplicationsPage() {
                   </div>
                   <div className="mt-4">
                     <a
-                      href="https://freetaxcalculator.co.uk/p60-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/after-tax/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-highlight hover:text-primary-text transition-colors text-sm font-medium"
                     >
-                      Calculate end-of-year tax position →
+                      Calculate after-tax position →
                     </a>
                   </div>
                 </div>
@@ -265,12 +265,12 @@ export default function ProRataTaxImplicationsPage() {
                           Ensure your tax code reflects your pro rata status.
                           Use our partner's{" "}
                           <a
-                            href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                            href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-primary-highlight hover:text-primary-text underline"
                           >
-                            tax code calculator
+                            tax code checker
                           </a>{" "}
                           to verify.
                         </p>

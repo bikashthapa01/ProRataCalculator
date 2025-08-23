@@ -208,12 +208,12 @@ export default function ToolsSection() {
                 </div>
                 <p className="text-primary-secondary mb-1">Tax Codes</p>
                 <a
-                  href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                  href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-highlight hover:text-primary-text transition-colors text-xs"
                 >
-                  Code Calculator
+                  Code Checker
                 </a>
               </div>
             </div>

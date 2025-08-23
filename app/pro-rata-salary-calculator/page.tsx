@@ -490,22 +490,22 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                             <span>NI Calculator</span>
                           </a>
                           <a
-                            href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                            href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
                           >
                             <Calculator className="w-3 h-3" />
-                            <span>Tax Code Calculator</span>
+                            <span>Tax Code Checker</span>
                           </a>
                           <a
-                            href="https://freetaxcalculator.co.uk/p60-calculator"
+                            href="https://freetaxcalculator.co.uk/tools/gross-salary-calculator/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
                           >
                             <Calculator className="w-3 h-3" />
-                            <span>P60 Calculator</span>
+                            <span>Gross Salary Calculator</span>
                           </a>
                         </div>
                       </div>
@@ -991,20 +991,20 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                       • National Insurance Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Tax Code Calculator
+                      • Tax Code Checker
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/p60-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/gross-salary-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • P60 Calculator
+                      • Gross Salary Calculator
                     </a>
                   </div>
                 </div>
@@ -1021,36 +1021,36 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                   </div>
                   <div className="space-y-2 text-sm">
                     <a
-                      href="https://freetaxcalculator.co.uk/holiday-pay-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/after-tax/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Holiday Pay Calculator
+                      • After Tax Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/maternity-pay-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/inheritance-tax-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Maternity Pay Calculator
+                      • Inheritance Tax Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/paternity-pay-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/road-tax-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Paternity Pay Calculator
+                      • Road Tax Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/sick-pay-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/capital-gains-tax-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Sick Pay Calculator
+                      • Capital Gains Tax Calculator
                     </a>
                   </div>
                 </div>
@@ -1067,36 +1067,36 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                   </div>
                   <div className="space-y-2 text-sm">
                     <a
-                      href="https://freetaxcalculator.co.uk/self-assessment-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/income-tax-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Self Assessment Calculator
+                      • Income Tax Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/vat-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/ni-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • VAT Calculator
+                      • NI Calculator
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/corporation-tax-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/tax-code-checker/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Corporation Tax Calculator
+                      • Tax Code Checker
                     </a>
                     <a
-                      href="https://freetaxcalculator.co.uk/business-expenses-calculator"
+                      href="https://freetaxcalculator.co.uk/tools/gross-salary-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-primary-highlight hover:text-primary-text transition-colors"
                     >
-                      • Business Expenses Calculator
+                      • Gross Salary Calculator
                     </a>
                   </div>
                 </div>
