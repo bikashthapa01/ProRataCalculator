@@ -40,6 +40,67 @@ export default function BlogList({
 
   return (
     <div>
+      {/* Featured Blog Post */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="mb-12"
+      >
+        <div className="glass-effect rounded-card p-8 card-shadow border border-white/20">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-primary-text mb-2">
+              Featured: Pro Rata Tax Implications 2025
+            </h2>
+            <p className="text-primary-secondary mb-4">
+              Learn how pro rata work affects your tax obligations and National
+              Insurance contributions in the 2025/26 tax year.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h3 className="font-semibold text-primary-text mb-3">
+                What You&apos;ll Learn:
+              </h3>
+              <ul className="space-y-2 text-sm text-primary-secondary">
+                <li className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <span>Key tax changes for 2025/26</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <span>Common pro rata tax scenarios</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <span>Tax planning tips for part-time workers</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <span>Integration with advanced tax calculators</span>
+                </li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <Link
+                href="/blog/pro-rata-tax-implications-2025"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#7c53ff] to-[#2c2470] text-white font-semibold px-6 py-3 rounded-xl hover:from-[#6a45e6] hover:to-[#251d5f] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <span>Read Full Article</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Posts Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12">
         {posts.map((post, index) => (

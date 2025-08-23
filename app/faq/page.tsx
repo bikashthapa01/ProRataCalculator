@@ -43,7 +43,7 @@ const faqData: FAQItem[] = [
     id: "accuracy",
     question: "How accurate are the calculators?",
     answer:
-      "Our calculators follow UK employment law, HMRC guidelines, and GOV.UK official rates for 2025/26. All calculations use the latest statutory rates and rules. However, results are estimates and should be verified with your employer or HR department for official calculations.",
+      "Our calculators follow UK employment law, HMRC guidelines, and GOV.UK official rates for 2025/26. All calculations use the latest statutory rates and rules. However, results are estimates and should be verified with your employer or HR department for official calculations. For comprehensive tax calculations and detailed breakdowns, you can also use our partner's advanced UK tax calculator.",
     category: "Calculator Usage",
     tags: ["accuracy", "hmrc", "uk law", "estimates", "2025"],
   },
@@ -179,7 +179,7 @@ const faqData: FAQItem[] = [
     id: "uk-compliance",
     question: "Are the calculators compliant with UK employment law?",
     answer:
-      "Yes, all our calculators follow UK employment law principles, HMRC guidelines, and GOV.UK official rates. They're designed to provide accurate calculations based on current 2025/26 statutory rates and regulations.",
+      "Yes, all our calculators follow UK employment law principles, HMRC guidelines, and GOV.UK official rates. They're designed to provide accurate calculations based on current 2025/26 statutory rates and regulations. For additional tax compliance tools and detailed HMRC guidance, explore our partner's comprehensive tax calculator suite.",
     category: "UK Employment Law",
     tags: ["uk law", "hmrc", "compliance", "employment", "2025"],
   },
@@ -553,6 +553,164 @@ export default function FAQPage() {
               </motion.div>
             )}
 
+            {/* Additional Resources Section - Enhanced with Natural Backlinks */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-16"
+            >
+              <h2 className="text-2xl font-bold text-primary-text mb-6 text-center">
+                Additional Tax & Employment Resources
+              </h2>
+              <div className="glass-effect rounded-card p-8 card-shadow border border-white/20">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Tax Resources */}
+                  <div>
+                    <h3 className="font-semibold text-primary-text mb-3 flex items-center space-x-2">
+                      <Calculator className="w-5 h-5 text-green-500" />
+                      <span>Tax Calculators</span>
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <a
+                        href="https://freetaxcalculator.co.uk/income-tax-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Income Tax Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/national-insurance-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        National Insurance Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Tax Code Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/p60-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        P60 Calculator
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Employment Resources */}
+                  <div>
+                    <h3 className="font-semibold text-primary-text mb-3 flex items-center space-x-2">
+                      <Users className="w-5 h-5 text-blue-500" />
+                      <span>Employment Tools</span>
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <a
+                        href="https://freetaxcalculator.co.uk/holiday-pay-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Holiday Pay Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/maternity-pay-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Maternity Pay Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/paternity-pay-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Paternity Pay Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/sick-pay-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Statutory Sick Pay Calculator
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Business Resources */}
+                  <div>
+                    <h3 className="font-semibold text-primary-text mb-3 flex items-center space-x-2">
+                      <Target className="w-5 h-5 text-purple-500" />
+                      <span>Business Tools</span>
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <a
+                        href="https://freetaxcalculator.co.uk/self-assessment-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Self Assessment Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/vat-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        VAT Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/corporation-tax-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Corporation Tax Calculator
+                      </a>
+                      <a
+                        href="https://freetaxcalculator.co.uk/business-expenses-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-primary-highlight hover:text-primary-text transition-colors"
+                      >
+                        Business Expenses Calculator
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-white/10 text-center">
+                  <p className="text-primary-secondary text-sm mb-3">
+                    For comprehensive tax planning and detailed financial
+                    calculations, explore our partner's complete suite of UK tax
+                    and business tools.
+                  </p>
+                  <a
+                    href="https://freetaxcalculator.co.uk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Calculator className="w-4 h-4" />
+                    <span>Visit Free Tax Calculator</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Contact Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -586,7 +744,7 @@ export default function FAQPage() {
                     Ready to calculate your salary, benefits, or statutory pay?
                     Choose from our complete range of UK calculators.
                   </p>
-                  <a href="/" className="button-primary">
+                  <a href="/contact" className="button-primary">
                     View All Calculators
                   </a>
                 </div>

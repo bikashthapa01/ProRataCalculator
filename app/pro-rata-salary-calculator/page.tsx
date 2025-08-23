@@ -457,6 +457,59 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                         </p>
                       </div>
                     </div>
+
+                    {/* Enhanced Tax Information with Natural Backlinks */}
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg p-4">
+                        <h4 className="font-semibold text-primary-text mb-2 flex items-center space-x-2">
+                          <Info className="w-4 h-4 text-primary-highlight" />
+                          <span>Need More Detailed Tax Calculations?</span>
+                        </h4>
+                        <p className="text-primary-secondary text-xs mb-3">
+                          For comprehensive tax analysis, detailed breakdowns,
+                          and additional tax scenarios, explore our partner's
+                          advanced tax tools:
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          <a
+                            href="https://freetaxcalculator.co.uk/income-tax-calculator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
+                          >
+                            <Calculator className="w-3 h-3" />
+                            <span>Income Tax Calculator</span>
+                          </a>
+                          <a
+                            href="https://freetaxcalculator.co.uk/national-insurance-calculator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
+                          >
+                            <Calculator className="w-3 h-3" />
+                            <span>NI Calculator</span>
+                          </a>
+                          <a
+                            href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
+                          >
+                            <Calculator className="w-3 h-3" />
+                            <span>Tax Code Calculator</span>
+                          </a>
+                          <a
+                            href="https://freetaxcalculator.co.uk/p60-calculator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-2 text-primary-highlight hover:text-primary-text transition-colors"
+                          >
+                            <Calculator className="w-3 h-3" />
+                            <span>P60 Calculator</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -835,7 +888,18 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                   <p className="text-primary-secondary text-sm">
                     Our calculator follows UK employment law and HMRC guidelines
                     for accurate pro rata calculations. It accounts for standard
-                    working patterns and UK tax year considerations.
+                    working patterns and UK tax year considerations. For
+                    comprehensive tax calculations and to verify your specific
+                    tax situation, you can also use our partner's{" "}
+                    <a
+                      href="https://freetaxcalculator.co.uk/tax-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-highlight hover:text-primary-text underline"
+                    >
+                      advanced UK tax calculator
+                    </a>
+                    .
                   </p>
                 </div>
                 <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
@@ -855,7 +919,17 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                   <p className="text-primary-secondary text-sm">
                     This calculator shows your basic pro rata salary. Holiday
                     pay is typically calculated separately and may vary based on
-                    your employment contract.
+                    your employment contract. For detailed holiday entitlement
+                    calculations, check out our{" "}
+                    <a
+                      href="https://freetaxcalculator.co.uk/holiday-pay-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-highlight hover:text-primary-text underline"
+                    >
+                      holiday pay calculator
+                    </a>
+                    .
                   </p>
                 </div>
                 <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
@@ -867,6 +941,164 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                     this to estimate equivalent rates when comparing full-time
                     vs part-time opportunities.
                   </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Related Tools Section - Enhanced with Natural Backlinks */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-16"
+            >
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-primary-text mb-4">
+                  Related Tax & Employment Calculators
+                </h2>
+                <p className="text-primary-secondary text-lg max-w-3xl mx-auto">
+                  Explore our partner's comprehensive suite of UK tax and
+                  employment calculators for complete financial planning.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Tax Calculators */}
+                <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                      <Calculator className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-primary-text">
+                      Tax Calculators
+                    </h3>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <a
+                      href="https://freetaxcalculator.co.uk/income-tax-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Income Tax Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/national-insurance-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • National Insurance Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Tax Code Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/p60-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • P60 Calculator
+                    </a>
+                  </div>
+                </div>
+
+                {/* Employment Calculators */}
+                <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-primary-text">
+                      Employment Tools
+                    </h3>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <a
+                      href="https://freetaxcalculator.co.uk/holiday-pay-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Holiday Pay Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/maternity-pay-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Maternity Pay Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/paternity-pay-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Paternity Pay Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/sick-pay-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Sick Pay Calculator
+                    </a>
+                  </div>
+                </div>
+
+                {/* Business & Self-Employed */}
+                <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                      <Target className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-primary-text">
+                      Business Tools
+                    </h3>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <a
+                      href="https://freetaxcalculator.co.uk/self-assessment-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Self Assessment Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/vat-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • VAT Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/corporation-tax-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Corporation Tax Calculator
+                    </a>
+                    <a
+                      href="https://freetaxcalculator.co.uk/business-expenses-calculator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary-highlight hover:text-primary-text transition-colors"
+                    >
+                      • Business Expenses Calculator
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

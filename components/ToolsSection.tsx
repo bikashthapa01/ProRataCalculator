@@ -112,7 +112,7 @@ export default function ToolsSection() {
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* Enhanced Call to Action with Natural Backlinks */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,13 +128,95 @@ export default function ToolsSection() {
               We're constantly adding new calculators to help with UK employment
               calculations. Let us know what you'd like to see next!
             </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#7c53ff] to-[#2c2470] text-white font-semibold px-6 py-3 rounded-xl hover:from-[#6a45e6] hover:to-[#1a1b2a] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              <TrendingUp className="w-5 h-5" />
-              <span>Suggest a Calculator</span>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#7c53ff] to-[#2c2470] text-white font-semibold px-6 py-3 rounded-xl hover:from-[#6a45e6] hover:to-[#1a1b2a] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <TrendingUp className="w-5 h-5" />
+                <span>Suggest a Calculator</span>
+              </a>
+
+              <a
+                href="https://freetaxcalculator.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold px-6 py-3 rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <Calculator className="w-5 h-5" />
+                <span>Explore Tax Calculators</span>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Resources Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12"
+        >
+          <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+            <div className="text-center mb-6">
+              <h4 className="text-lg font-semibold text-primary-text mb-2">
+                Enhanced with Advanced Tax Tools
+              </h4>
+              <p className="text-primary-secondary text-sm">
+                Our pro-rata calculators work seamlessly with comprehensive tax
+                calculation tools for complete financial planning.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div className="text-center">
+                <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <Calculator className="w-4 h-4 text-green-400" />
+                </div>
+                <p className="text-primary-secondary mb-1">Income Tax</p>
+                <a
+                  href="https://freetaxcalculator.co.uk/income-tax-calculator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-highlight hover:text-primary-text transition-colors text-xs"
+                >
+                  Advanced Calculator
+                </a>
+              </div>
+
+              <div className="text-center">
+                <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <Shield className="w-4 h-4 text-blue-400" />
+                </div>
+                <p className="text-primary-secondary mb-1">
+                  National Insurance
+                </p>
+                <a
+                  href="https://freetaxcalculator.co.uk/national-insurance-calculator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-highlight hover:text-primary-text transition-colors text-xs"
+                >
+                  NI Calculator
+                </a>
+              </div>
+
+              <div className="text-center">
+                <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <FileText className="w-4 h-4 text-purple-400" />
+                </div>
+                <p className="text-primary-secondary mb-1">Tax Codes</p>
+                <a
+                  href="https://freetaxcalculator.co.uk/tax-code-calculator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-highlight hover:text-primary-text transition-colors text-xs"
+                >
+                  Code Calculator
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
