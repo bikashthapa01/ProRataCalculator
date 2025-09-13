@@ -800,50 +800,226 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
       {/* SEO-Rich Content Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* How TTO Contracts Work */}
+          {/* Comprehensive Guide Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold text-white text-center mb-8">
-              How Term-Time Only Contracts Work in the UK
-            </h2>
             <div className="glass-effect rounded-card p-8 card-shadow border border-white/20">
-              <div className="prose prose-invert max-w-none">
-                <p className="text-gray-300 mb-4">
-                  Term-time only (TTO) contracts are common in UK schools and
-                  education settings. These contracts allow you to work only
-                  during school term time while still receiving your statutory
-                  holiday entitlement. Your annual salary is calculated by
-                  applying both an hours factor (for part-time work) and a TTO
-                  pay factor (for the reduced working year).
-                </p>
-                <p className="text-gray-300 mb-4">
-                  Most TTO employees work around 39 weeks per year plus receive
-                  5.6 weeks paid holiday (the statutory minimum). Some local
-                  authorities provide additional holiday weeks or include bank
-                  holidays separately. The exact terms depend on your employer's
-                  policy and local authority agreements.
-                </p>
-                <p className="text-gray-300">
-                  For related calculations, check our{" "}
-                  <a
-                    href="/pro-rata-salary-calculator"
-                    className="text-green-400 hover:text-green-300"
-                  >
-                    pro rata salary calculator
-                  </a>{" "}
-                  for general part-time work or our{" "}
-                  <a
-                    href="/pro-rata-holiday-calculator"
-                    className="text-green-400 hover:text-green-300"
-                  >
-                    holiday entitlement calculator
-                  </a>{" "}
-                  for detailed holiday calculations.
-                </p>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Complete Guide to Term-Time Only Salary Calculation UK 2025
+              </h2>
+
+              <div className="prose prose-invert max-w-none space-y-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    What is Term-Time Only Salary?
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    A term-time only (TTO) salary is a payment structure
+                    commonly used in UK schools and educational institutions. It
+                    allows employees to work only during school term time while
+                    receiving their full statutory holiday entitlement. This
+                    arrangement is particularly popular among school support
+                    staff, teaching assistants, learning support assistants, and
+                    administrative personnel.
+                  </p>
+                  <p className="text-gray-300 mb-4">
+                    Unlike traditional full-time contracts that span 52 weeks
+                    per year, term-time only contracts typically cover around 39
+                    weeks of actual work plus paid holiday weeks. This means
+                    employees receive their salary even during school holidays
+                    when they're not required to work.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    How Term-Time Only Salary is Calculated
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    The calculation involves two main factors that reduce the
+                    full-time equivalent (FTE) salary:
+                  </p>
+                  <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
+                    <li>
+                      <strong>Hours Factor:</strong> Your contracted hours ÷
+                      Full-time hours (e.g., 25 ÷ 37.5 = 66.7%)
+                    </li>
+                    <li>
+                      <strong>TTO Pay Factor:</strong> Paid weeks ÷ 52 weeks
+                      (e.g., 44.6 ÷ 52 = 85.8%)
+                    </li>
+                    <li>
+                      <strong>Final Calculation:</strong> FTE Salary × Hours
+                      Factor × TTO Pay Factor
+                    </li>
+                  </ul>
+                  <p className="text-gray-300 mb-4">
+                    For example, if you earn £30,000 FTE, work 25 hours per week
+                    (66.7% hours factor), and have 44.6 paid weeks (85.8% TTO
+                    factor), your annual TTO salary would be: £30,000 × 0.667 ×
+                    0.858 = £17,160.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    Term-Time Only Salary Benefits
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-[#2c2470]/20 rounded-lg p-4 border border-[#2c2470]/30">
+                      <h4 className="font-semibold text-white mb-2">
+                        For Employees
+                      </h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        <li>• Work-life balance during school holidays</li>
+                        <li>• Full statutory holiday entitlement</li>
+                        <li>
+                          • Consistent monthly income (if spread over 12 months)
+                        </li>
+                        <li>• Perfect for parents with school-age children</li>
+                      </ul>
+                    </div>
+                    <div className="bg-[#2c2470]/20 rounded-lg p-4 border border-[#2c2470]/30">
+                      <h4 className="font-semibold text-white mb-2">
+                        For Employers
+                      </h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        <li>• Cost-effective staffing during term time</li>
+                        <li>• Reduced overhead during holidays</li>
+                        <li>• Attracts quality education professionals</li>
+                        <li>• Flexible workforce management</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    Common Term-Time Only Salary Scenarios
+                  </h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm bg-[#2c2470]/20 rounded-lg border border-[#2c2470]/30">
+                      <thead>
+                        <tr className="border-b border-white/10">
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">
+                            Role
+                          </th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">
+                            Typical Hours
+                          </th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">
+                            FTE Salary Range
+                          </th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">
+                            TTO Salary Range
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-white">
+                        <tr className="border-b border-white/5">
+                          <td className="py-3 px-4">Teaching Assistant</td>
+                          <td className="py-3 px-4">25-30 hours</td>
+                          <td className="py-3 px-4">£18,000 - £25,000</td>
+                          <td className="py-3 px-4">£15,000 - £21,000</td>
+                        </tr>
+                        <tr className="border-b border-white/5">
+                          <td className="py-3 px-4">
+                            Learning Support Assistant
+                          </td>
+                          <td className="py-3 px-4">20-25 hours</td>
+                          <td className="py-3 px-4">£16,000 - £22,000</td>
+                          <td className="py-3 px-4">£13,000 - £18,000</td>
+                        </tr>
+                        <tr className="border-b border-white/5">
+                          <td className="py-3 px-4">School Administrator</td>
+                          <td className="py-3 px-4">30-35 hours</td>
+                          <td className="py-3 px-4">£20,000 - £28,000</td>
+                          <td className="py-3 px-4">£17,000 - £24,000</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-4">Catering Staff</td>
+                          <td className="py-3 px-4">15-20 hours</td>
+                          <td className="py-3 px-4">£15,000 - £20,000</td>
+                          <td className="py-3 px-4">£12,000 - £17,000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    Legal Requirements for Term-Time Only Contracts
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    All term-time only contracts in the UK must comply with
+                    employment law requirements:
+                  </p>
+                  <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
+                    <li>
+                      <strong>Statutory Holiday Entitlement:</strong> Minimum
+                      5.6 weeks (28 days) paid holiday per year
+                    </li>
+                    <li>
+                      <strong>National Minimum Wage:</strong> Must meet current
+                      NMW rates for hours worked
+                    </li>
+                    <li>
+                      <strong>Pension Contributions:</strong> Eligible for
+                      workplace pension schemes
+                    </li>
+                    <li>
+                      <strong>Sick Pay:</strong> Entitled to Statutory Sick Pay
+                      (SSP) when applicable
+                    </li>
+                    <li>
+                      <strong>Maternity/Paternity Pay:</strong> Full statutory
+                      entitlements apply
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+                    How Term-Time Only Contracts Work in the UK
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    Term-time only (TTO) contracts are common in UK schools and
+                    education settings. These contracts allow you to work only
+                    during school term time while still receiving your statutory
+                    holiday entitlement. Your annual salary is calculated by
+                    applying both an hours factor (for part-time work) and a TTO
+                    pay factor (for the reduced working year).
+                  </p>
+                  <p className="text-gray-300 mb-4">
+                    Most TTO employees work around 39 weeks per year plus
+                    receive 5.6 weeks paid holiday (the statutory minimum). Some
+                    local authorities provide additional holiday weeks or
+                    include bank holidays separately. The exact terms depend on
+                    your employer's policy and local authority agreements.
+                  </p>
+                  <p className="text-gray-300">
+                    For related calculations, check our{" "}
+                    <a
+                      href="/pro-rata-salary-calculator"
+                      className="text-green-400 hover:text-green-300"
+                    >
+                      pro rata salary calculator
+                    </a>{" "}
+                    for general part-time work or our{" "}
+                    <a
+                      href="/pro-rata-holiday-calculator"
+                      className="text-green-400 hover:text-green-300"
+                    >
+                      holiday entitlement calculator
+                    </a>{" "}
+                    for detailed holiday calculations.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -856,7 +1032,7 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
             className="mb-16"
           >
             <h2 className="text-3xl font-bold text-white text-center mb-8">
-              Frequently Asked Questions
+              Term-Time Only Salary Calculator - Frequently Asked Questions
             </h2>
 
             <div className="space-y-6">
@@ -871,6 +1047,24 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   hours) and the TTO pay factor (paid weeks ÷ 52 weeks). Paid
                   weeks typically include 39 term weeks plus 5.6 statutory
                   holiday weeks.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
+                    What is the difference between term-time only and pro-rata
+                    salary?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  Term-time only salary applies both an hours reduction (for
+                  part-time work) and a time reduction (for working fewer weeks
+                  per year). Pro-rata salary typically only applies an hours
+                  reduction for part-time work over the full 52-week year. TTO
+                  contracts are specifically designed for education sector roles
+                  that follow the academic calendar.
                 </p>
               </div>
 
@@ -905,6 +1099,22 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                 <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
                   <HelpCircle className="w-5 h-5 text-green-400" />
                   <span>
+                    Do term-time only employees get paid during school holidays?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  Yes, term-time only employees receive their salary during
+                  school holidays as part of their paid holiday entitlement.
+                  This is typically 5.6 weeks (28 days) minimum, but many local
+                  authorities provide more. The salary is often spread evenly
+                  over 12 months for consistent monthly income.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
                     Why is my monthly pay the same if I only work in term time?
                   </span>
                 </h3>
@@ -914,6 +1124,20 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   the same amount each month, even during school holidays when
                   you're not working. Some employers pay only during worked and
                   holiday weeks instead.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>Can I negotiate my term-time only salary?</span>
+                </h3>
+                <p className="text-gray-300">
+                  Yes, term-time only salaries can often be negotiated,
+                  especially for experienced staff or specialized roles. Factors
+                  that may influence negotiations include your qualifications,
+                  experience, the school's budget, local authority pay scales,
+                  and market rates for similar positions in your area.
                 </p>
               </div>
 
@@ -934,6 +1158,39 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
               <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
                 <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
                   <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
+                    How does overtime work with term-time only contracts?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  Overtime arrangements vary by employer. Some schools pay
+                  overtime for additional hours worked during term time, while
+                  others may offer time off in lieu. Check your contract and
+                  local authority policy for specific overtime rates and
+                  conditions.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
+                    Are term-time only salaries subject to tax and National
+                    Insurance?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  Yes, term-time only salaries are subject to the same tax and
+                  National Insurance deductions as any other employment income.
+                  Your employer will deduct PAYE tax and National Insurance
+                  contributions based on your annual salary amount, regardless
+                  of the term-time only nature of your contract.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
                   <span>What jobs typically use TTO contracts?</span>
                 </h3>
                 <p className="text-gray-300">
@@ -942,6 +1199,41 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   administrators, catering staff, and some technical roles.
                   They're particularly popular in primary and secondary schools
                   across all local authorities.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
+                    What are the advantages of term-time only contracts?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  Term-time only contracts offer work-life balance during school
+                  holidays, making them ideal for parents with school-age
+                  children. They provide full statutory holiday entitlement,
+                  consistent monthly income (when spread over 12 months), and
+                  allow employees to enjoy extended breaks without financial
+                  penalty. For employers, they offer cost-effective staffing and
+                  flexible workforce management.
+                </p>
+              </div>
+
+              <div className="glass-effect rounded-card p-6 card-shadow border border-white/20">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center space-x-2">
+                  <HelpCircle className="w-5 h-5 text-green-400" />
+                  <span>
+                    How do I convert from full-time to term-time only salary?
+                  </span>
+                </h3>
+                <p className="text-gray-300">
+                  To convert from full-time to term-time only salary, multiply
+                  your current FTE salary by the hours factor (your new hours ÷
+                  full-time hours) and the TTO pay factor (paid weeks ÷ 52). For
+                  example, if you earn £30,000 FTE and move to 25 hours per week
+                  with 44.6 paid weeks: £30,000 × (25÷37.5) × (44.6÷52) =
+                  £17,160 annual TTO salary.
                 </p>
               </div>
             </div>
