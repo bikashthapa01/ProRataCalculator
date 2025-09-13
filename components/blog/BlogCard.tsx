@@ -33,6 +33,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
             priority={false}
+            unoptimized
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#2c2470]/40 to-[#7c53ff]/20 flex items-center justify-center">
@@ -65,7 +66,12 @@ export default function BlogCard({ post }: BlogCardProps) {
           {author && (
             <div className="flex items-center gap-2">
               <User className="w-4 h-4" />
-              <span>By {author.name}</span>
+              <span>
+                By{" "}
+                {author.firstName && author.lastName
+                  ? `${author.firstName} ${author.lastName}`
+                  : author.name}
+              </span>
             </div>
           )}
         </div>

@@ -22,7 +22,16 @@ export const GET_BLOG_POSTS = gql`
         modified
         author {
           node {
+            id
             name
+            firstName
+            lastName
+            description
+            avatar {
+              url
+            }
+            url
+            slug
           }
         }
         featuredImage {
@@ -49,6 +58,17 @@ export const GET_BLOG_POSTS = gql`
         }
         seo {
           title
+          description
+          focusKeywords
+          openGraph {
+            title
+            description
+            image {
+              secureUrl
+            }
+          }
+          canonicalUrl
+          breadcrumbTitle
         }
       }
       pageInfo {
@@ -73,7 +93,16 @@ export const GET_BLOG_POST = gql`
       modified
       author {
         node {
+          id
           name
+          firstName
+          lastName
+          description
+          avatar {
+            url
+          }
+          url
+          slug
         }
       }
       featuredImage {
@@ -100,6 +129,17 @@ export const GET_BLOG_POST = gql`
       }
       seo {
         title
+        description
+        focusKeywords
+        openGraph {
+          title
+          description
+          image {
+            secureUrl
+          }
+        }
+        canonicalUrl
+        breadcrumbTitle
       }
     }
   }
@@ -116,6 +156,17 @@ export const GET_CATEGORIES = gql`
         description
         seo {
           title
+          description
+          focusKeywords
+          openGraph {
+            title
+            description
+            image {
+              secureUrl
+            }
+          }
+          canonicalUrl
+          breadcrumbTitle
         }
       }
     }
@@ -147,7 +198,16 @@ export const GET_BLOG_SEARCH = gql`
         modified
         author {
           node {
+            id
             name
+            firstName
+            lastName
+            description
+            avatar {
+              url
+            }
+            url
+            slug
           }
         }
         featuredImage {
@@ -172,6 +232,17 @@ export const GET_BLOG_SEARCH = gql`
         }
         seo {
           title
+          description
+          focusKeywords
+          openGraph {
+            title
+            description
+            image {
+              secureUrl
+            }
+          }
+          canonicalUrl
+          breadcrumbTitle
         }
       }
     }
@@ -191,7 +262,16 @@ export const GET_FEATURED_POSTS = gql`
         modified
         author {
           node {
+            id
             name
+            firstName
+            lastName
+            description
+            avatar {
+              url
+            }
+            url
+            slug
           }
         }
         featuredImage {
@@ -216,6 +296,17 @@ export const GET_FEATURED_POSTS = gql`
         }
         seo {
           title
+          description
+          focusKeywords
+          openGraph {
+            title
+            description
+            image {
+              secureUrl
+            }
+          }
+          canonicalUrl
+          breadcrumbTitle
         }
       }
     }

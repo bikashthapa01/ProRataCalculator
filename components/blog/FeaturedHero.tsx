@@ -27,6 +27,7 @@ export default function FeaturedHero({ post }: FeaturedHeroProps) {
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
             className="object-cover"
+            unoptimized
           />
         )}
 

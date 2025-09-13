@@ -1,82 +1,72 @@
-"use client";
+import type { Metadata } from "next";
+import BlogPageClient from "@/components/blog/BlogPageClient";
 
-import { useEffect, useState } from "react";
-import BlogList from "@/components/blog/BlogList";
-import { BlogService } from "@/lib/services/blog-service";
-import type { BlogPost, BlogPageInfo } from "@/lib/types/blog";
+export const metadata: Metadata = {
+  title: "Pro Rata Calculator Blog | UK Employment Law & Salary Guides 2025",
+  description:
+    "Expert insights on UK employment law, salary calculations, and pro rata work. Stay updated with the latest employment news and practical guides for 2025.",
+  keywords: [
+    "pro rata calculator blog",
+    "UK employment law",
+    "salary calculations",
+    "pro rata work",
+    "employment news",
+    "UK employment guides",
+    "part time salary",
+    "holiday entitlement",
+    "employment calculator",
+    "UK employment 2025",
+  ].join(", "),
+  authors: [{ name: "Pro Rata Calculator UK" }],
+  creator: "Pro Rata Calculator UK",
+  publisher: "Pro Rata Calculator UK",
+  metadataBase: new URL("https://proratacalculator.co.uk"),
+  alternates: {
+    canonical: "https://proratacalculator.co.uk/blog",
+  },
+  openGraph: {
+    title: "Pro Rata Calculator Blog | UK Employment Law & Salary Guides 2025",
+    description:
+      "Expert insights on UK employment law, salary calculations, and pro rata work. Stay updated with the latest employment news and practical guides for 2025.",
+    url: "https://proratacalculator.co.uk/blog",
+    siteName: "Pro Rata Calculator UK",
+    locale: "en_GB",
+    type: "website",
+    images: [
+      {
+        url: "https://proratacalculator.co.uk/blog-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pro Rata Calculator Blog - UK Employment Law & Salary Guides",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pro Rata Calculator Blog | UK Employment Law & Salary Guides 2025",
+    description:
+      "Expert insights on UK employment law, salary calculations, and pro rata work. Stay updated with the latest employment news and practical guides for 2025.",
+    images: ["https://proratacalculator.co.uk/blog-og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "GB",
+    "geo.placename": "United Kingdom",
+    "application-name": "Pro Rata Calculator UK",
+  },
+};
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [pageInfo, setPageInfo] = useState<BlogPageInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const postsPerPage = 12;
-
-  useEffect(() => {
-    const loadBlogData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const postsData = await BlogService.getBlogPosts(postsPerPage).catch(
-          () => BlogService.getMockData()
-        );
-
-        if (!postsData || !postsData.posts) {
-          throw new Error("Invalid posts data structure received");
-        }
-
-        setPosts(postsData.posts.nodes || []);
-        setPageInfo(postsData.posts.pageInfo || null);
-      } catch (err) {
-        const message =
-          err instanceof Error ? err.message : "Failed to load blog data";
-        setError(message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadBlogData();
-  }, [postsPerPage]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#111221] flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-[#7C53FF] mx-auto"></div>
-          <p className="mt-6 text-[#B1B3C7] text-lg">Loading posts...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error && posts.length === 0) {
-    return (
-      <div className="min-h-screen bg-[#111221] flex items-center justify-center px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-[#18192a] border border-red-500/20 text-red-400 px-8 py-6 rounded-[24px] mb-8">
-            <h2 className="text-2xl font-bold mb-4">
-              Unable to load blog posts
-            </h2>
-            <p className="text-[#B1B3C7]">{error}</p>
-          </div>
-          <button
-            onClick={() => window.location.reload()}
-            className="bg-gradient-to-r from-[#7c53ff] to-[#2c2470] text-white px-8 py-3 rounded-[9999px] font-semibold hover:from-[#6a45e6] hover:to-[#251d5f] transition-all duration-300 shadow-lg"
-          >
-            Try Again
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-[#111221] px-4 sm:px-6 lg:px-8 pt-28 pb-12">
-      <div className="max-w-7xl mx-auto">
-        <BlogList posts={posts} pageInfo={pageInfo} currentPage={1} />
-      </div>
-    </div>
-  );
+  return <BlogPageClient />;
 }

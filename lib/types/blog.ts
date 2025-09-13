@@ -8,7 +8,16 @@ export interface BlogPost {
   modified: string;
   author: {
     node: {
+      id: string;
       name: string;
+      firstName?: string;
+      lastName?: string;
+      description?: string;
+      avatar?: {
+        url: string;
+      };
+      url?: string;
+      slug?: string;
     };
   };
   featuredImage: {
@@ -25,6 +34,17 @@ export interface BlogPost {
   };
   seo: {
     title: string;
+    description: string;
+    focusKeywords: string;
+    openGraph: {
+      title: string;
+      description: string;
+      image: {
+        secureUrl: string;
+      } | null;
+    };
+    canonicalUrl: string;
+    breadcrumbTitle: string;
   };
 }
 
@@ -36,6 +56,17 @@ export interface BlogCategory {
   description: string | null;
   seo: {
     title: string;
+    description: string;
+    focusKeywords: string;
+    openGraph: {
+      title: string;
+      description: string;
+      image: {
+        secureUrl: string;
+      } | null;
+    };
+    canonicalUrl: string;
+    breadcrumbTitle: string;
   };
 }
 

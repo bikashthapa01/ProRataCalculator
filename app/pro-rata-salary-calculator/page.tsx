@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Calculator,
@@ -15,14 +15,10 @@ import {
   Percent,
   Users,
   AlertCircle,
-  FileText,
   MapPin,
-  CreditCard,
-  Banknote,
   Target,
   Zap,
   ArrowUp,
-  ArrowDown,
 } from "lucide-react";
 import {
   calculateProRata,
@@ -859,12 +855,13 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                     What is Pro Rata?
                   </h3>
                   <p className="text-primary-secondary text-sm">
-                    Pro rata means "in proportion" in Latin. For example, if you
-                    work 20 hours per week instead of the full-time 37.5 hours,
-                    your salary would be pro rata - meaning you'd receive 53.3%
-                    of the full-time salary. This calculator helps you determine
-                    your exact pro rata pay for part-time work, job sharing, or
-                    partial-year employment in the UK.
+                    Pro rata means &quot;in proportion&quot; in Latin. For
+                    example, if you work 20 hours per week instead of the
+                    full-time 37.5 hours, your salary would be pro rata -
+                    meaning you&apos;d receive 53.3% of the full-time salary.
+                    This calculator helps you determine your exact pro rata pay
+                    for part-time work, job sharing, or partial-year employment
+                    in the UK.
                   </p>
                 </div>
               </div>
@@ -1207,8 +1204,8 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                           Calculate Results
                         </h3>
                         <p className="text-primary-secondary text-sm">
-                          Click "Calculate Pro Rata Salary & Take-Home Pay" to
-                          see your results. The calculator will show your pro
+                          Click &quot;Calculate Pro Rata Salary & Take-Home Pay"
+                          to see your results. The calculator will show your pro
                           rata salary breakdown and take-home pay after tax
                           deductions.
                         </p>
