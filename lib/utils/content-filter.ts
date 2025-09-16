@@ -177,7 +177,39 @@ export class ContentFilter {
       );
     }
 
+    // Filter author URL
+    if (filteredPost.author?.node?.url) {
+      filteredPost.author.node.url = this.filterAuthorUrl(
+        filteredPost.author.node.url
+      );
+    }
+
     return filteredPost;
+  }
+
+  /**
+   * Clean author URL to remove Cloudways URL
+   */
+  private filterAuthorUrl(authorUrl: string): string | null {
+    if (!authorUrl) return null;
+
+    try {
+      const url = new URL(authorUrl);
+
+      // Remove Cloudways URLs
+      if (url.hostname.includes("cloudwaysapps.com")) {
+        return null; // Don't show external Cloudways URLs
+      }
+
+      // Convert CMS domain to main domain for internal author pages
+      if (url.hostname === "cms.proratacalculator.co.uk") {
+        return `https://proratacalculator.co.uk${url.pathname}`;
+      }
+
+      return authorUrl;
+    } catch {
+      return null;
+    }
   }
 }
 
@@ -198,4 +230,31 @@ export function filterTermTimeSalaryContent(content: string): string {
 
 export function filterTermTimeSalaryPost(postData: any, slug?: string): any {
   return termTimeSalaryFilter.filterBlogPost(postData, slug);
+}
+
+/**
+ * Clean author URL to remove Cloudways URLs and convert CMS URLs
+ */
+export function cleanAuthorUrl(
+  authorUrl: string | null | undefined
+): string | null {
+  if (!authorUrl) return null;
+
+  try {
+    const url = new URL(authorUrl);
+
+    // Remove Cloudways URLs
+    if (url.hostname.includes("cloudwaysapps.com")) {
+      return null; // Don't show external Cloudways URLs
+    }
+
+    // Convert CMS domain to main domain for internal author pages
+    if (url.hostname === "cms.proratacalculator.co.uk") {
+      return `https://proratacalculator.co.uk${url.pathname}`;
+    }
+
+    return authorUrl;
+  } catch {
+    return null;
+  }
 }

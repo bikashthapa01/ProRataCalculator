@@ -316,15 +316,6 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
               <span>/</span>
               <span className="text-[#9B7FFF]">{post.title}</span>
             </nav>
-
-            {/* Back Button */}
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-[#9B7FFF] hover:text-[#7c53ff] transition-colors group"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Blog
-            </Link>
           </motion.div>
 
           {/* Article Header */}
@@ -334,35 +325,7 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
             transition={{ duration: 0.6 }}
             className="bg-gradient-to-br from-[#18192a] to-[#1a1b2e] rounded-3xl border border-[#7c53ff]/20 shadow-2xl overflow-hidden w-full backdrop-blur-sm"
           >
-            {featuredImage && (
-              <div className="relative aspect-video overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={featuredImage.sourceUrl}
-                  alt={featuredImage.altText || post.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111221]/60 via-transparent to-transparent" />
-              </div>
-            )}
-
             <div className="p-8 lg:p-12 max-w-7xl mx-auto">
-              {/* Categories */}
-              {categories.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {categories.map((category) => (
-                    <span
-                      key={category.slug}
-                      className="inline-flex items-center gap-1 bg-gradient-to-r from-[#7c53ff]/20 to-[#9B7FFF]/20 text-[#9B7FFF] px-4 py-2 rounded-full text-sm font-medium border border-[#7c53ff]/30 hover:from-[#7c53ff]/30 hover:to-[#9B7FFF]/30 transition-all duration-300"
-                    >
-                      <Tag className="w-3 h-3" />
-                      {category.name}
-                    </span>
-                  ))}
-                </div>
-              )}
-
               {/* Title and Share Button */}
               <div className="flex items-start justify-between gap-4 mb-6">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight flex-1">

@@ -4,7 +4,10 @@ import type {
   BlogTag,
   BlogPostsResponse,
 } from "../types/blog";
-import { filterTermTimeSalaryPost } from "../utils/content-filter";
+import {
+  filterTermTimeSalaryPost,
+  cleanAuthorUrl,
+} from "../utils/content-filter";
 
 export class BlogService {
   static async getBlogPosts(
@@ -100,6 +103,12 @@ export class BlogService {
         posts: {
           ...data.data.posts,
           nodes: data.data.posts.nodes.map((post: BlogPost) => {
+            // Clean author URL for all posts
+            if (post.author?.node?.url) {
+              post.author.node.url =
+                cleanAuthorUrl(post.author.node.url) || undefined;
+            }
+
             if (post.slug === "term-time-vs-full-time-salary") {
               return filterTermTimeSalaryPost(post);
             }
@@ -256,6 +265,12 @@ export class BlogService {
       }
 
       let post = data.data.post;
+
+      // Clean author URL for all posts
+      if (post.author?.node?.url) {
+        post.author.node.url =
+          cleanAuthorUrl(post.author.node.url) || undefined;
+      }
 
       // Apply content filtering for specific posts
       if (slug === "term-time-vs-full-time-salary") {
