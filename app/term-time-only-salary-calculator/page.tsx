@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Calculator,
@@ -23,6 +23,7 @@ import {
   TrendingUp,
   Shield,
 } from "lucide-react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -62,19 +63,7 @@ export default function TermTimeOnlySalaryCalculatorPage() {
   // Ref for scrolling to results
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  // Real-time calculation with debounce
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (isFormValid()) {
-        const calculatedResults = calculateTTO(inputs);
-        setResults(calculatedResults);
-      } else {
-        setResults(null);
-      }
-    }, 300);
-
-    return () => clearTimeout(timeoutId);
-  }, [inputs]);
+  // Removed auto-calculation - now only calculates when user clicks button
 
   const validateForm = (): ValidationErrors => {
     const newErrors: ValidationErrors = {};
@@ -129,10 +118,6 @@ export default function TermTimeOnlySalaryCalculatorPage() {
     }
 
     return newErrors;
-  };
-
-  const isFormValid = (): boolean => {
-    return Object.keys(validateForm()).length === 0;
   };
 
   const handleCalculate = () => {
@@ -204,6 +189,28 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
     <div className="min-h-screen bg-gradient-to-br from-[#111221] via-[#18192a] to-[#111221]">
       <Header />
 
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#1a1b2e] to-[#18192a]">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm text-[#B1B3C7]">
+            <Link href="/" className="hover:text-[#9B7FFF] transition-colors">
+              Home
+            </Link>
+            <span>/</span>
+            <Link
+              href="/pro-rata-salary-calculator"
+              className="hover:text-[#9B7FFF] transition-colors"
+            >
+              Pro Rata Calculators
+            </Link>
+            <span>/</span>
+            <span className="text-[#9B7FFF]">
+              Term-Time Only Salary Calculator
+            </span>
+          </nav>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -225,7 +232,8 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
               className="text-4xl md:text-6xl font-bold mb-6"
             >
               <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Term-Time Only Salary Calculator
+                Term-Time Only Salary Calculator UK 2025 | Free TTO Pay
+                Calculator
               </span>
             </motion.h1>
 
@@ -814,9 +822,9 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
 
               <div className="prose prose-invert max-w-none space-y-6">
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     What is Term-Time Only Salary?
-                  </h3>
+                  </h2>
                   <p className="text-gray-300 mb-4">
                     A term-time only (TTO) salary is a payment structure
                     commonly used in UK schools and educational institutions. It
@@ -831,17 +839,24 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                     per year, term-time only contracts typically cover around 39
                     weeks of actual work plus paid holiday weeks. This means
                     employees receive their salary even during school holidays
-                    when they're not required to work.
+                    when they&apos;re not required to work.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     How Term-Time Only Salary is Calculated
-                  </h3>
+                  </h2>
                   <p className="text-gray-300 mb-4">
                     The calculation involves two main factors that reduce the
-                    full-time equivalent (FTE) salary:
+                    full-time equivalent (FTE) salary. For general{" "}
+                    <a
+                      href="/pro-rata-salary-calculator"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      pro rata salary calculations
+                    </a>{" "}
+                    (without term-time reduction), see our dedicated calculator.
                   </p>
                   <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
                     <li>
@@ -866,9 +881,9 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     Term-Time Only Salary Benefits
-                  </h3>
+                  </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="bg-[#2c2470]/20 rounded-lg p-4 border border-[#2c2470]/30">
                       <h4 className="font-semibold text-white mb-2">
@@ -898,9 +913,9 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     Common Term-Time Only Salary Scenarios
-                  </h3>
+                  </h2>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm bg-[#2c2470]/20 rounded-lg border border-[#2c2470]/30">
                       <thead>
@@ -952,72 +967,129 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     Legal Requirements for Term-Time Only Contracts
-                  </h3>
+                  </h2>
                   <p className="text-gray-300 mb-4">
                     All term-time only contracts in the UK must comply with
-                    employment law requirements:
+                    employment law requirements. For detailed{" "}
+                    <a
+                      href="/pro-rata-holiday-calculator"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      holiday entitlement calculations
+                    </a>
+                    , use our dedicated holiday calculator.
                   </p>
                   <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
                     <li>
                       <strong>Statutory Holiday Entitlement:</strong> Minimum
-                      5.6 weeks (28 days) paid holiday per year
+                      5.6 weeks (28 days) paid holiday per year as outlined in
+                      the{" "}
+                      <a
+                        href="https://www.gov.uk/calculate-your-holiday-entitlement"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
+                        UK government holiday entitlement calculator
+                      </a>
                     </li>
                     <li>
-                      <strong>National Minimum Wage:</strong> Must meet current
-                      NMW rates for hours worked
+                      <strong>National Minimum Wage:</strong> Must meet current{" "}
+                      <a
+                        href="https://www.gov.uk/national-minimum-wage-rates"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
+                        NMW rates
+                      </a>{" "}
+                      for hours worked
                     </li>
                     <li>
                       <strong>Pension Contributions:</strong> Eligible for
                       workplace pension schemes
                     </li>
                     <li>
-                      <strong>Sick Pay:</strong> Entitled to Statutory Sick Pay
-                      (SSP) when applicable
+                      <strong>Sick Pay:</strong> Entitled to{" "}
+                      <a
+                        href="https://www.gov.uk/statutory-sick-pay"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
+                        Statutory Sick Pay (SSP)
+                      </a>{" "}
+                      when applicable
                     </li>
                     <li>
-                      <strong>Maternity/Paternity Pay:</strong> Full statutory
-                      entitlements apply
+                      <strong>Maternity/Paternity Pay:</strong> Full{" "}
+                      <a
+                        href="https://www.gov.uk/maternity-pay-leave"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-400 hover:text-green-300 underline"
+                      >
+                        statutory entitlements
+                      </a>{" "}
+                      apply
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">
+                  <h2 className="text-2xl font-semibold text-white mb-4">
                     How Term-Time Only Contracts Work in the UK
-                  </h3>
+                  </h2>
                   <p className="text-gray-300 mb-4">
                     Term-time only (TTO) contracts are common in UK schools and
                     education settings. These contracts allow you to work only
                     during school term time while still receiving your statutory
-                    holiday entitlement. Your annual salary is calculated by
-                    applying both an hours factor (for part-time work) and a TTO
-                    pay factor (for the reduced working year).
+                    holiday entitlement as defined by{" "}
+                    <a
+                      href="https://www.gov.uk/employment-contracts-and-conditions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      UK employment law
+                    </a>
+                    . Your annual salary is calculated by applying both an hours
+                    factor (for part-time work) and a TTO pay factor (for the
+                    reduced working year).
                   </p>
                   <p className="text-gray-300 mb-4">
                     Most TTO employees work around 39 weeks per year plus
                     receive 5.6 weeks paid holiday (the statutory minimum). Some
                     local authorities provide additional holiday weeks or
                     include bank holidays separately. The exact terms depend on
-                    your employer's policy and local authority agreements.
+                    your employer&apos;s policy and local authority agreements.
                   </p>
                   <p className="text-gray-300">
                     For related calculations, check our{" "}
                     <a
                       href="/pro-rata-salary-calculator"
-                      className="text-green-400 hover:text-green-300"
+                      className="text-green-400 hover:text-green-300 underline"
                     >
                       pro rata salary calculator
                     </a>{" "}
                     for general part-time work or our{" "}
                     <a
                       href="/pro-rata-holiday-calculator"
-                      className="text-green-400 hover:text-green-300"
+                      className="text-green-400 hover:text-green-300 underline"
                     >
                       holiday entitlement calculator
                     </a>{" "}
-                    for detailed holiday calculations.
+                    for detailed holiday calculations. For sick pay
+                    entitlements, see our{" "}
+                    <a
+                      href="/pro-rata-sick-pay-calculator"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      statutory sick pay calculator
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
@@ -1088,8 +1160,17 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                 </h3>
                 <p className="text-gray-300">
                   Yes, term-time only contracts must include statutory paid
-                  holiday entitlement. The minimum is 5.6 weeks (28 days) but
-                  many local authorities provide more. Some include bank
+                  holiday entitlement. The minimum is 5.6 weeks (28 days) as
+                  required by{" "}
+                  <a
+                    href="https://www.gov.uk/calculate-your-holiday-entitlement"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-400 hover:text-green-300 underline"
+                  >
+                    UK employment law
+                  </a>
+                  , but many local authorities provide more. Some include bank
                   holidays within the holiday allocation, while others add them
                   separately.
                 </p>
@@ -1122,8 +1203,8 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   Many employers spread term-time only pay evenly over 12 months
                   to provide consistent monthly income. This means you receive
                   the same amount each month, even during school holidays when
-                  you're not working. Some employers pay only during worked and
-                  holiday weeks instead.
+                  you&apos;re not working. Some employers pay only during worked
+                  and holiday weeks instead.
                 </p>
               </div>
 
@@ -1136,8 +1217,8 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   Yes, term-time only salaries can often be negotiated,
                   especially for experienced staff or specialized roles. Factors
                   that may influence negotiations include your qualifications,
-                  experience, the school's budget, local authority pay scales,
-                  and market rates for similar positions in your area.
+                  experience, the school&apos;s budget, local authority pay
+                  scales, and market rates for similar positions in your area.
                 </p>
               </div>
 
@@ -1197,8 +1278,8 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   Term-time only contracts are common for school support staff,
                   teaching assistants, learning support assistants, school
                   administrators, catering staff, and some technical roles.
-                  They're particularly popular in primary and secondary schools
-                  across all local authorities.
+                  They&apos;re particularly popular in primary and secondary
+                  schools across all local authorities.
                 </p>
               </div>
 
@@ -1296,6 +1377,139 @@ Calculated using Term-Time Only Salary Calculator UK - https://proratacalculator
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-400" />
                 </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Official Government Resources */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.85 }}
+            className="glass-effect rounded-card p-6 card-shadow border border-blue-500/20"
+          >
+            <div className="flex items-start space-x-3">
+              <Shield className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold text-blue-400 mb-3">
+                  Official UK Government Resources
+                </h3>
+                <div className="text-sm text-gray-300 space-y-2">
+                  <p>
+                    For authoritative information on UK employment law and
+                    entitlements, refer to these official government resources:
+                  </p>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>
+                      <a
+                        href="https://www.gov.uk/calculate-your-holiday-entitlement"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline"
+                      >
+                        Holiday Entitlement Calculator
+                      </a>{" "}
+                      - Official government tool for statutory holiday
+                      calculations
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.gov.uk/national-minimum-wage-rates"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline"
+                      >
+                        National Minimum Wage Rates
+                      </a>{" "}
+                      - Current NMW rates and compliance requirements
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.gov.uk/employment-contracts-and-conditions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline"
+                      >
+                        Employment Contracts and Conditions
+                      </a>{" "}
+                      - Official guidance on UK employment law
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.gov.uk/statutory-sick-pay"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline"
+                      >
+                        Statutory Sick Pay (SSP)
+                      </a>{" "}
+                      - SSP entitlements and eligibility criteria
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Disclaimer Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#1a1b2e] to-[#18192a]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="glass-effect rounded-card p-6 card-shadow border border-yellow-500/20"
+          >
+            <div className="flex items-start space-x-3">
+              <AlertCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold text-yellow-400 mb-3">
+                  Important Disclaimer
+                </h3>
+                <div className="text-sm text-gray-300 space-y-2">
+                  <p>
+                    <strong>
+                      This calculator is for guidance purposes only.
+                    </strong>{" "}
+                    The results provided are estimates based on the information
+                    you enter and should not be considered as definitive salary
+                    calculations.
+                  </p>
+                  <p>
+                    <strong>Always verify with your employer:</strong> Actual
+                    term-time only salaries may vary based on your specific
+                    contract, local authority policies, school agreements, and
+                    individual circumstances.
+                  </p>
+                  <p>
+                    <strong>Legal compliance:</strong> This calculator assumes
+                    compliance with UK employment law, including statutory
+                    holiday entitlements and National Minimum Wage requirements.
+                    Your actual contract terms may differ.
+                  </p>
+                  <p>
+                    <strong>Tax implications:</strong> The calculator shows
+                    gross salary amounts. Actual take-home pay will depend on
+                    your tax code, National Insurance contributions, pension
+                    deductions, and other factors.
+                  </p>
+                  <p>
+                    <strong>Seek professional advice:</strong> For important
+                    employment decisions, salary negotiations, or legal matters,
+                    consult with HR professionals, employment lawyers, or
+                    relevant trade unions.
+                  </p>
+                  <p className="text-xs text-gray-400 mt-4 pt-3 border-t border-white/10">
+                    Last updated: September 16, 2025. Calculator accuracy
+                    subject to UK employment law changes.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
