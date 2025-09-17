@@ -8,6 +8,8 @@ import {
   Users,
   FileText,
   ArrowRight,
+  AlertTriangle,
+  Target,
 } from "lucide-react";
 
 export interface Tool {
@@ -108,6 +110,21 @@ export const tools: Tool[] = [
     color: "from-blue-500 to-purple-600",
   },
   {
+    id: "pro-rata-pension",
+    title: "Pro Rata Pension Calculator",
+    description:
+      "Calculate workplace pension contributions for part-time and term-time only employees. Check auto-enrolment eligibility and calculate employee/employer contributions with 2025/26 rates.",
+    iconName: "Shield",
+    href: "/pro-rata-pension-calculator",
+    category: "Pensions & Benefits",
+    features: [
+      "Auto-enrolment eligibility",
+      "Qualifying earnings calculation",
+      "2025/26 tax year rates",
+    ],
+    color: "from-blue-500 to-purple-600",
+  },
+  {
     id: "term-time-only-salary",
     title: "Term-Time Only Salary Calculator",
     description:
@@ -121,6 +138,36 @@ export const tools: Tool[] = [
       "Education focused",
     ],
     color: "from-green-500 to-blue-600",
+  },
+  {
+    id: "notice-period-calculator",
+    title: "Notice Period Calculator",
+    description:
+      "Calculate UK notice periods and pro-rata pay for part-time employees. Determine statutory vs contractual notice, final pay during notice period, and legal entitlements.",
+    iconName: "AlertTriangle",
+    href: "/notice-period-calculator",
+    category: "Employment Rights",
+    features: [
+      "Statutory notice periods",
+      "Pro-rata pay calculations",
+      "UK employment law",
+    ],
+    color: "from-orange-500 to-red-600",
+  },
+  {
+    id: "commission-calculator",
+    title: "Part-Time Commission Calculator",
+    description:
+      "Calculate fair commission for part-time sales workers. Adjust sales targets based on hours worked, calculate pro-rata commission, and ensure fair pay for reduced-hour contracts.",
+    iconName: "Target",
+    href: "/commission-calculator",
+    category: "Sales & Commission",
+    features: [
+      "Pro-rata sales targets",
+      "Commission calculations",
+      "Part-time adjustments",
+    ],
+    color: "from-emerald-500 to-teal-600",
   },
 ];
 
