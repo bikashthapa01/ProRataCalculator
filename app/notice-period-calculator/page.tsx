@@ -378,43 +378,6 @@ Calculated using Notice Period Calculator UK - https://proratacalculator.co.uk/n
         }}
       />
 
-      {/* FAQ Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Can I leave immediately without giving notice?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, if you've been employed for less than 1 month. Otherwise, you must give at least 1 week's notice unless your contract specifies otherwise. Leaving without proper notice may breach your contract and could affect future references.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Do I get paid for holidays during my notice period?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, you're entitled to accrued holiday pay. Any untaken holiday during your notice period must be paid out. This is calculated pro-rata based on your working hours and the proportion of the holiday year you've worked.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "How is notice calculated for part-time employees?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Notice periods are the same regardless of hours worked. A part-time employee gets the same notice as a full-time employee. However, final pay during notice is calculated pro-rata based on your actual working hours and weekly wage.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-
       <Header />
       <main className="min-h-screen pt-20">
         <section className="py-section px-8">
