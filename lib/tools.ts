@@ -76,11 +76,11 @@ export const tools: Tool[] = [
     id: "pro-rata-sick-pay",
     title: "Pro Rata Sick Pay Calculator",
     description:
-      "Calculate your Statutory Sick Pay (SSP) entitlement for part-time workers with 2025 rates.",
+      "Calculate your Statutory Sick Pay (SSP) entitlement for part-time workers with 2026 rates.",
     iconName: "FileText",
     href: "/pro-rata-sick-pay-calculator",
     category: "Sick Pay",
-    features: ["SSP calculations", "2025 rates", "Part-time workers"],
+    features: ["SSP calculations", "2026 rates", "Part-time workers"],
     color: "from-red-500 to-red-600",
   },
   {
@@ -102,25 +102,25 @@ export const tools: Tool[] = [
     id: "pro-rata-paternity-pay",
     title: "Pro Rata Paternity Pay Calculator",
     description:
-      "Work out Statutory Paternity Pay for part-time or full-time UK workers using 2025 rules. Check eligibility and see your SPP rate instantly.",
+      "Work out Statutory Paternity Pay for part-time or full-time UK workers using 2026 rules. Check eligibility and see your SPP rate instantly.",
     iconName: "Heart",
     href: "/pro-rata-paternity-pay-calculator",
     category: "Family & Parental Pay",
-    features: ["Statutory Paternity Pay", "Part-time support", "2025 UK rules"],
+    features: ["Statutory Paternity Pay", "Part-time support", "2026 UK rules"],
     color: "from-blue-500 to-purple-600",
   },
   {
     id: "pro-rata-pension",
     title: "Pro Rata Pension Calculator",
     description:
-      "Calculate workplace pension contributions for part-time and term-time only employees. Check auto-enrolment eligibility and calculate employee/employer contributions with 2025/26 rates.",
+      "Calculate workplace pension contributions for part-time and term-time only employees. Check auto-enrolment eligibility and calculate employee/employer contributions with 2026/27 rates.",
     iconName: "Shield",
     href: "/pro-rata-pension-calculator",
     category: "Pensions & Benefits",
     features: [
       "Auto-enrolment eligibility",
       "Qualifying earnings calculation",
-      "2025/26 tax year rates",
+      "2026/27 tax year rates",
     ],
     color: "from-blue-500 to-purple-600",
   },

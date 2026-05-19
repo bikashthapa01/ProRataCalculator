@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2025",
+  title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2026",
   description:
     "Find answers to frequently asked questions about our pro rata calculator. Learn how to calculate pro rata salary, understand UK employment law, and get help with our calculator.",
   keywords:
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "https://proratacalculator.co.uk/faq",
   },
   openGraph: {
-    title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2025",
+    title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2026",
     description:
       "Find answers to frequently asked questions about our pro rata calculator. Learn how to calculate pro rata salary, understand UK employment law, and get help with our calculator.",
     url: "https://proratacalculator.co.uk/faq",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "FAQ - Pro Rata Calculator UK 2025",
+        alt: "FAQ - Pro Rata Calculator UK 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2025",
+    title: "FAQ - Frequently Asked Questions | Pro Rata Calculator UK 2026",
     description:
       "Find answers to frequently asked questions about our pro rata calculator.",
     images: ["/og-image.jpg"],

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Calculator,
@@ -88,12 +88,12 @@ export default function ProRataSalaryCalculatorPage() {
   const [endDate, setEndDate] = useState("");
   const [showDateFields, setShowDateFields] = useState(false);
   const [isScotland, setIsScotland] = useState(false);
-  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
   const [selectedTaxYear, setSelectedTaxYear] = useState<TaxYear>(
     getDefaultTaxYear()
   );
 
-  // Ref for scrolling to results
+  const [effectiveHours, setEffectiveHours] = useState(0);
+
   const resultsRef = useRef<HTMLDivElement>(null);
 
   // Get available tax years
@@ -145,17 +145,6 @@ export default function ProRataSalaryCalculatorPage() {
       }
     }
 
-    // Validate dates if provided
-    if (showDateFields) {
-      if (startDate && endDate) {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-        if (start >= end) {
-          newErrors.endDate = "End date must be after start date";
-        }
-      }
-    }
-
     return newErrors;
   };
 
@@ -168,13 +157,14 @@ export default function ProRataSalaryCalculatorPage() {
       return;
     }
 
-    const calculationInputs = {
-      ...inputs,
-      actualHours:
-        calculationType === "hours"
-          ? inputs.actualHours
-          : (percentageValue / 100) * inputs.fullTimeHours,
-    };
+    const computedHours =
+      calculationType === "hours"
+        ? inputs.actualHours
+        : (percentageValue / 100) * inputs.fullTimeHours;
+
+    setEffectiveHours(computedHours);
+
+    const calculationInputs = { ...inputs, actualHours: computedHours };
 
     const calculatedResults = calculateProRata(calculationInputs);
     setResults(calculatedResults);
@@ -232,7 +222,7 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
     value: string | number
   ) => {
     if (field === "frequency") {
-      setInputs((prev) => ({ ...prev, [field]: value as any }));
+      setInputs((prev) => ({ ...prev, frequency: value as ProRataInputs["frequency"] }));
     } else {
       const numValue =
         typeof value === "string" ? parseFloat(value) || 0 : value;
@@ -251,7 +241,13 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
     setShowErrors(false);
   };
 
-  const isFormValid = Object.keys(validateForm()).length === 0;
+  const isFormValid = useMemo(() => {
+    if (!inputs.fullTimeSalary || inputs.fullTimeSalary <= 0 || inputs.fullTimeSalary > 1000000) return false;
+    if (calculationType === "hours") {
+      return inputs.actualHours > 0 && inputs.actualHours <= inputs.fullTimeHours && inputs.actualHours <= 168;
+    }
+    return percentageValue > 0 && percentageValue <= 100;
+  }, [inputs, calculationType, percentageValue]);
 
   return (
     <>
@@ -398,7 +394,7 @@ Calculated using Pro Rata Calculator UK - https://proratacalculator.co.uk/pro-ra
                           </td>
                           <td className="text-right py-3 font-semibold text-emerald-500">
                             {formatTaxCurrency(
-                              taxResults.takeHomePay / 52 / inputs.actualHours
+                              effectiveHours > 0 ? taxResults.takeHomePay / 52 / effectiveHours : 0
                             )}
                           </td>
                         </tr>

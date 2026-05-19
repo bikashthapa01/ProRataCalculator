@@ -47,7 +47,7 @@ export default function ToolsSection() {
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Comprehensive UK employment calculators designed for accuracy and
-            ease of use. All tools are updated for 2025 rates and regulations.
+            ease of use. All tools are updated for 2026 rates and regulations.
           </p>
         </motion.div>
 

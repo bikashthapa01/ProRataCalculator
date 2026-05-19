@@ -1,5 +1,4 @@
 // Tax Calculator for UK and Scotland - Multi-Year Support
-// Updated with latest HMRC rates for 2025/26 and future-proof structure
 
 export interface TaxBand {
   name: string;
@@ -29,7 +28,116 @@ export interface NIRates {
   }[];
 }
 
-// 2025/26 Tax Year Rates - Updated with correct rates
+// Compute effective personal allowance — tapers by £1 for every £2 earned above £100k
+function getEffectivePA(
+  grossSalary: number,
+  personalAllowance: number,
+  taperStart: number
+): number {
+  if (grossSalary <= taperStart) return personalAllowance;
+  return Math.max(0, personalAllowance - Math.floor((grossSalary - taperStart) / 2));
+}
+
+// Compute income tax across bands, starting from effectivePA as the zero-tax floor
+function computeIncomeTax(
+  grossSalary: number,
+  effectivePA: number,
+  bands: TaxBand[]
+): { total: number; breakdown: Record<string, number> } {
+  if (grossSalary <= effectivePA) return { total: 0, breakdown: {} };
+  const breakdown: Record<string, number> = {};
+  let total = 0;
+  let prevCeiling = effectivePA;
+
+  for (const band of bands) {
+    const bandTop = band.upper !== null ? band.upper : grossSalary;
+    const taxable = Math.max(0, Math.min(grossSalary, bandTop) - prevCeiling);
+    if (taxable > 0) {
+      breakdown[band.name] = taxable * band.rate;
+      total += breakdown[band.name];
+    }
+    prevCeiling = bandTop;
+    if (prevCeiling >= grossSalary) break;
+  }
+
+  return { total, breakdown };
+}
+
+// Compute National Insurance using band thresholds directly
+function computeNI(
+  grossSalary: number,
+  rates: { name: string; rate: number; threshold: number; upper: number | null }[]
+): { total: number; breakdown: Record<string, number> } {
+  const breakdown: Record<string, number> = {};
+  let total = 0;
+  // NI starts at the primary threshold; everything below is exempt
+  let prevCeiling = rates[0].threshold - 1;
+
+  for (const rate of rates) {
+    const rateTop = rate.upper !== null ? rate.upper : grossSalary;
+    const taxable = Math.max(0, Math.min(grossSalary, rateTop) - prevCeiling);
+    if (taxable > 0) {
+      breakdown[rate.name] = taxable * rate.rate;
+      total += breakdown[rate.name];
+    }
+    prevCeiling = rateTop;
+    if (prevCeiling >= grossSalary) break;
+  }
+
+  return { total, breakdown };
+}
+
+// 2026/27 Tax Year Rates (thresholds frozen until April 2028; same values as 2025/26)
+export const TAX_BANDS_2026 = {
+  uk: {
+    year: "2026/27",
+    region: "England, Wales, NI",
+    personalAllowance: 12570,
+    taperStart: 100000,
+    taperEnd: 125140,
+    bands: [
+      { name: "Basic Rate", rate: 0.2, threshold: 12571, upper: 50270 },
+      { name: "Higher Rate", rate: 0.4, threshold: 50271, upper: 125140 },
+      { name: "Additional Rate", rate: 0.45, threshold: 125141, upper: null },
+    ],
+  },
+  scotland: {
+    year: "2026/27",
+    region: "Scotland",
+    personalAllowance: 12570,
+    taperStart: 100000,
+    taperEnd: 125140,
+    bands: [
+      { name: "Starter Rate", rate: 0.19, threshold: 12571, upper: 14876 },
+      { name: "Basic Rate", rate: 0.2, threshold: 14877, upper: 26561 },
+      { name: "Intermediate Rate", rate: 0.21, threshold: 26562, upper: 43662 },
+      { name: "Higher Rate", rate: 0.42, threshold: 43663, upper: 75000 },
+      { name: "Advanced Rate", rate: 0.45, threshold: 75001, upper: 125140 },
+      { name: "Top Rate", rate: 0.48, threshold: 125141, upper: null },
+    ],
+  },
+};
+
+export const NI_RATES_2026 = {
+  employee: {
+    year: "2026/27",
+    region: "UK",
+    primaryThreshold: 12570,
+    upperEarningsLimit: 50270,
+    rates: [
+      { name: "Main Rate", rate: 0.08, threshold: 12571, upper: 50270 },
+      { name: "Upper Rate", rate: 0.02, threshold: 50271, upper: null },
+    ],
+  },
+  employer: {
+    year: "2026/27",
+    region: "UK",
+    secondaryThreshold: 9100,
+    rate: 0.138,
+  },
+};
+
+// 2025/26 Tax Year Rates
 export const TAX_BANDS_2025 = {
   uk: {
     year: "2025/26",
@@ -38,24 +146,9 @@ export const TAX_BANDS_2025 = {
     taperStart: 100000,
     taperEnd: 125140,
     bands: [
-      {
-        name: "Basic Rate",
-        rate: 0.2,
-        threshold: 12571,
-        upper: 50270,
-      },
-      {
-        name: "Higher Rate",
-        rate: 0.4,
-        threshold: 50271,
-        upper: 125140,
-      },
-      {
-        name: "Additional Rate",
-        rate: 0.45,
-        threshold: 125141,
-        upper: null, // no upper limit
-      },
+      { name: "Basic Rate", rate: 0.2, threshold: 12571, upper: 50270 },
+      { name: "Higher Rate", rate: 0.4, threshold: 50271, upper: 125140 },
+      { name: "Additional Rate", rate: 0.45, threshold: 125141, upper: null },
     ],
   },
   scotland: {
@@ -65,42 +158,12 @@ export const TAX_BANDS_2025 = {
     taperStart: 100000,
     taperEnd: 125140,
     bands: [
-      {
-        name: "Starter Rate",
-        rate: 0.19,
-        threshold: 12571,
-        upper: 14876,
-      },
-      {
-        name: "Basic Rate",
-        rate: 0.2,
-        threshold: 14877,
-        upper: 26561,
-      },
-      {
-        name: "Intermediate Rate",
-        rate: 0.21,
-        threshold: 26562,
-        upper: 43662,
-      },
-      {
-        name: "Higher Rate",
-        rate: 0.42,
-        threshold: 43663,
-        upper: 75000,
-      },
-      {
-        name: "Advanced Rate",
-        rate: 0.45,
-        threshold: 75001,
-        upper: 125140,
-      },
-      {
-        name: "Top Rate",
-        rate: 0.48,
-        threshold: 125141,
-        upper: null,
-      },
+      { name: "Starter Rate", rate: 0.19, threshold: 12571, upper: 14876 },
+      { name: "Basic Rate", rate: 0.2, threshold: 14877, upper: 26561 },
+      { name: "Intermediate Rate", rate: 0.21, threshold: 26562, upper: 43662 },
+      { name: "Higher Rate", rate: 0.42, threshold: 43663, upper: 75000 },
+      { name: "Advanced Rate", rate: 0.45, threshold: 75001, upper: 125140 },
+      { name: "Top Rate", rate: 0.48, threshold: 125141, upper: null },
     ],
   },
 };
@@ -112,18 +175,8 @@ export const NI_RATES_2025 = {
     primaryThreshold: 12570,
     upperEarningsLimit: 50270,
     rates: [
-      {
-        name: "Main Rate",
-        rate: 0.08,
-        threshold: 12571,
-        upper: 50270,
-      },
-      {
-        name: "Upper Rate",
-        rate: 0.02,
-        threshold: 50271,
-        upper: null, // no upper limit
-      },
+      { name: "Main Rate", rate: 0.08, threshold: 12571, upper: 50270 },
+      { name: "Upper Rate", rate: 0.02, threshold: 50271, upper: null },
     ],
   },
   employer: {
@@ -134,7 +187,7 @@ export const NI_RATES_2025 = {
   },
 };
 
-// Future tax years can be added here
+// 2024/25 Tax Year Rates (NI main rate was 8% for the full year from April 2024)
 export const TAX_BANDS_2024 = {
   uk: {
     year: "2024/25",
@@ -143,24 +196,9 @@ export const TAX_BANDS_2024 = {
     taperStart: 100000,
     taperEnd: 125140,
     bands: [
-      {
-        name: "Basic Rate",
-        rate: 0.2,
-        threshold: 12571,
-        upper: 50270,
-      },
-      {
-        name: "Higher Rate",
-        rate: 0.4,
-        threshold: 50271,
-        upper: 125140,
-      },
-      {
-        name: "Additional Rate",
-        rate: 0.45,
-        threshold: 125141,
-        upper: null,
-      },
+      { name: "Basic Rate", rate: 0.2, threshold: 12571, upper: 50270 },
+      { name: "Higher Rate", rate: 0.4, threshold: 50271, upper: 125140 },
+      { name: "Additional Rate", rate: 0.45, threshold: 125141, upper: null },
     ],
   },
   scotland: {
@@ -170,42 +208,12 @@ export const TAX_BANDS_2024 = {
     taperStart: 100000,
     taperEnd: 125140,
     bands: [
-      {
-        name: "Starter Rate",
-        rate: 0.19,
-        threshold: 12571,
-        upper: 14876,
-      },
-      {
-        name: "Basic Rate",
-        rate: 0.2,
-        threshold: 14877,
-        upper: 26561,
-      },
-      {
-        name: "Intermediate Rate",
-        rate: 0.21,
-        threshold: 26562,
-        upper: 43662,
-      },
-      {
-        name: "Higher Rate",
-        rate: 0.42,
-        threshold: 43663,
-        upper: 75000,
-      },
-      {
-        name: "Advanced Rate",
-        rate: 0.45,
-        threshold: 75001,
-        upper: 125140,
-      },
-      {
-        name: "Top Rate",
-        rate: 0.48,
-        threshold: 125141,
-        upper: null,
-      },
+      { name: "Starter Rate", rate: 0.19, threshold: 12571, upper: 14876 },
+      { name: "Basic Rate", rate: 0.2, threshold: 14877, upper: 26561 },
+      { name: "Intermediate Rate", rate: 0.21, threshold: 26562, upper: 43662 },
+      { name: "Higher Rate", rate: 0.42, threshold: 43663, upper: 75000 },
+      { name: "Advanced Rate", rate: 0.45, threshold: 75001, upper: 125140 },
+      { name: "Top Rate", rate: 0.48, threshold: 125141, upper: null },
     ],
   },
 };
@@ -217,18 +225,8 @@ export const NI_RATES_2024 = {
     primaryThreshold: 12570,
     upperEarningsLimit: 50270,
     rates: [
-      {
-        name: "Main Rate",
-        rate: 0.12,
-        threshold: 12571,
-        upper: 50270,
-      },
-      {
-        name: "Upper Rate",
-        rate: 0.02,
-        threshold: 50271,
-        upper: null,
-      },
+      { name: "Main Rate", rate: 0.08, threshold: 12571, upper: 50270 },
+      { name: "Upper Rate", rate: 0.02, threshold: 50271, upper: null },
     ],
   },
   employer: {
@@ -239,8 +237,12 @@ export const NI_RATES_2024 = {
   },
 };
 
-// Tax year registry - easy to add new years
+// Tax year registry
 export const TAX_YEARS = {
+  "2026/27": {
+    taxBands: TAX_BANDS_2026,
+    niRates: NI_RATES_2026,
+  },
   "2025/26": {
     taxBands: TAX_BANDS_2025,
     niRates: NI_RATES_2025,
@@ -278,68 +280,40 @@ export function getAvailableTaxYears(): TaxYear[] {
 }
 
 export function getDefaultTaxYear(): TaxYear {
-  return "2025/26";
+  return "2026/27";
 }
 
 export function calculateUKTax(
   grossSalary: number,
   isScotland: boolean = false,
-  taxYear: TaxYear = "2025/26"
+  taxYear: TaxYear = "2026/27"
 ): TaxCalculation | ScottishTaxCalculation {
   if (isScotland) {
     return calculateScottishTax(grossSalary, taxYear);
   }
-
   return calculateUKIncomeTax(grossSalary, taxYear);
 }
 
 export function calculateUKIncomeTax(
   grossSalary: number,
-  taxYear: TaxYear = "2025/26"
+  taxYear: TaxYear = "2026/27"
 ): TaxCalculation {
   const taxData = TAX_YEARS[taxYear];
-  const personalAllowance = taxData.taxBands.uk.personalAllowance;
-  const taxableIncome = Math.max(0, grossSalary - personalAllowance);
+  const { personalAllowance, taperStart, bands } = taxData.taxBands.uk;
 
-  // Calculate income tax
-  let incomeTax = 0;
-  const taxBreakdown: Record<string, number> = {};
+  const effectivePA = getEffectivePA(grossSalary, personalAllowance, taperStart);
+  const taxableIncome = Math.max(0, grossSalary - effectivePA);
 
-  for (const band of taxData.taxBands.uk.bands) {
-    if (taxableIncome > band.threshold - personalAllowance) {
-      const bandStart = Math.max(band.threshold - personalAllowance, 0);
-      const bandEnd = band.upper
-        ? Math.min(band.upper - personalAllowance, taxableIncome)
-        : taxableIncome;
+  const { total: incomeTax, breakdown: taxBreakdown } = computeIncomeTax(
+    grossSalary,
+    effectivePA,
+    bands
+  );
 
-      if (bandEnd > bandStart) {
-        const bandAmount = bandEnd - bandStart;
-        const bandTax = bandAmount * band.rate;
-        incomeTax += bandTax;
-        taxBreakdown[band.name] = bandTax;
-      }
-    }
-  }
-
-  // Calculate National Insurance
-  let nationalInsurance = 0;
-  const niBreakdown: Record<string, number> = {};
-
-  for (const rate of taxData.niRates.employee.rates) {
-    if (grossSalary > rate.threshold - 1) {
-      const rateStart = Math.max(rate.threshold - 1, 0);
-      const rateEnd = rate.upper
-        ? Math.min(rate.upper, grossSalary)
-        : grossSalary;
-
-      if (rateEnd > rateStart) {
-        const rateAmount = rateEnd - rateStart;
-        const rateNI = rateAmount * rate.rate;
-        nationalInsurance += rateNI;
-        niBreakdown[rate.name] = rateNI;
-      }
-    }
-  }
+  const { total: nationalInsurance, breakdown: niBreakdown } = computeNI(
+    grossSalary,
+    taxData.niRates.employee.rates
+  );
 
   const takeHomePay = grossSalary - incomeTax - nationalInsurance;
   const effectiveTaxRate =
@@ -347,7 +321,7 @@ export function calculateUKIncomeTax(
 
   return {
     grossSalary,
-    personalAllowance,
+    personalAllowance: effectivePA,
     taxableIncome,
     incomeTax,
     nationalInsurance,
@@ -363,51 +337,24 @@ export function calculateUKIncomeTax(
 
 export function calculateScottishTax(
   grossSalary: number,
-  taxYear: TaxYear = "2025/26"
+  taxYear: TaxYear = "2026/27"
 ): ScottishTaxCalculation {
   const taxData = TAX_YEARS[taxYear];
-  const personalAllowance = taxData.taxBands.scotland.personalAllowance;
-  const taxableIncome = Math.max(0, grossSalary - personalAllowance);
+  const { personalAllowance, taperStart, bands } = taxData.taxBands.scotland;
 
-  // Calculate Scottish income tax
-  let scottishIncomeTax = 0;
-  const scottishBreakdown: Record<string, number> = {};
+  const effectivePA = getEffectivePA(grossSalary, personalAllowance, taperStart);
+  const taxableIncome = Math.max(0, grossSalary - effectivePA);
 
-  for (const band of taxData.taxBands.scotland.bands) {
-    if (taxableIncome > band.threshold - personalAllowance) {
-      const bandStart = Math.max(band.threshold - personalAllowance, 0);
-      const bandEnd = band.upper
-        ? Math.min(band.upper - personalAllowance, taxableIncome)
-        : taxableIncome;
+  const { total: scottishIncomeTax, breakdown: scottishBreakdown } = computeIncomeTax(
+    grossSalary,
+    effectivePA,
+    bands
+  );
 
-      if (bandEnd > bandStart) {
-        const bandAmount = bandEnd - bandStart;
-        const bandTax = bandAmount * band.rate;
-        scottishIncomeTax += bandTax;
-        scottishBreakdown[band.name] = bandTax;
-      }
-    }
-  }
-
-  // Calculate National Insurance (same as UK)
-  let nationalInsurance = 0;
-  const niBreakdown: Record<string, number> = {};
-
-  for (const rate of taxData.niRates.employee.rates) {
-    if (grossSalary > rate.threshold - 1) {
-      const rateStart = Math.max(rate.threshold - 1, 0);
-      const rateEnd = rate.upper
-        ? Math.min(rate.upper, grossSalary)
-        : grossSalary;
-
-      if (rateEnd > rateStart) {
-        const rateAmount = rateEnd - rateStart;
-        const rateNI = rateAmount * rate.rate;
-        nationalInsurance += rateNI;
-        niBreakdown[rate.name] = rateNI;
-      }
-    }
-  }
+  const { total: nationalInsurance, breakdown: niBreakdown } = computeNI(
+    grossSalary,
+    taxData.niRates.employee.rates
+  );
 
   const takeHomePay = grossSalary - scottishIncomeTax - nationalInsurance;
   const effectiveTaxRate =
@@ -417,9 +364,9 @@ export function calculateScottishTax(
 
   return {
     grossSalary,
-    personalAllowance,
+    personalAllowance: effectivePA,
     taxableIncome,
-    incomeTax: scottishIncomeTax, // For compatibility
+    incomeTax: scottishIncomeTax,
     nationalInsurance,
     takeHomePay,
     effectiveTaxRate,
@@ -433,15 +380,4 @@ export function calculateScottishTax(
   };
 }
 
-export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
-export function formatPercentage(value: number): string {
-  return `${value.toFixed(1)}%`;
-}
+export { formatCurrency, formatPercentage } from "@/lib/utils";

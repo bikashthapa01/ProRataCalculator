@@ -28,7 +28,7 @@ export default function Hero() {
           >
             <Calculator className="w-5 h-5 text-primary-highlight" />
             <span className="text-primary-secondary font-medium">
-              Free UK Pro Rata Calculator 2025
+              Free UK Pro Rata Calculator 2026
             </span>
           </motion.div>
 
@@ -54,7 +54,7 @@ export default function Hero() {
           >
             Work out your pro rata salary, pay, and holiday entitlement for
             part-time, reduced hours, or temporary work. Accurate calculations
-            for UK employment law compliance in 2025.
+            for UK employment law compliance in 2026.
           </motion.p>
 
           {/* Features */}
@@ -70,7 +70,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-accent-from rounded-full"></div>
-              <span>UK compliant 2025</span>
+              <span>UK compliant 2026</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-accent-from rounded-full"></div>

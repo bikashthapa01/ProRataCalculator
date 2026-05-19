@@ -45,9 +45,9 @@ const faqData: FAQItem[] = [
     id: "accuracy",
     question: "How accurate are the calculators?",
     answer:
-      "Our calculators follow UK employment law, HMRC guidelines, and GOV.UK official rates for 2025/26. All calculations use the latest statutory rates and rules. However, results are estimates and should be verified with your employer or HR department for official calculations. For comprehensive tax calculations and detailed breakdowns, you can also use our partner's advanced UK tax calculator.",
+      "Our calculators follow UK employment law, HMRC guidelines, and GOV.UK official rates for 2026/26. All calculations use the latest statutory rates and rules. However, results are estimates and should be verified with your employer or HR department for official calculations. For comprehensive tax calculations and detailed breakdowns, you can also use our partner's advanced UK tax calculator.",
     category: "Calculator Usage",
-    tags: ["accuracy", "hmrc", "uk law", "estimates", "2025"],
+    tags: ["accuracy", "hmrc", "uk law", "estimates", "2026"],
   },
   {
     id: "data-storage",
@@ -73,15 +73,15 @@ const faqData: FAQItem[] = [
     answer:
       "Enter your average weekly earnings, employment start date, and baby's due date. The calculator checks eligibility (26+ weeks employed, £125+ weekly earnings) and calculates SMP: 90% of earnings for 6 weeks, then £187.18/week (or 90% if lower) for 33 weeks.",
     category: "Statutory Pay",
-    tags: ["maternity pay", "smp", "pregnancy", "family leave", "2025 rates"],
+    tags: ["maternity pay", "smp", "pregnancy", "family leave", "2026 rates"],
   },
   {
     id: "paternity-pay-calculator",
     question: "How does the Paternity Pay Calculator work?",
     answer:
-      "Input your average weekly earnings, employment start date, baby's due date, and weeks of leave (1 or 2). The calculator determines SPP eligibility and rate: lower of £187.18/week or 90% of your earnings, using 2025/26 rates.",
+      "Input your average weekly earnings, employment start date, baby's due date, and weeks of leave (1 or 2). The calculator determines SPP eligibility and rate: lower of £187.18/week or 90% of your earnings, using 2026/26 rates.",
     category: "Statutory Pay",
-    tags: ["paternity pay", "spp", "fathers", "family leave", "2025 rates"],
+    tags: ["paternity pay", "spp", "fathers", "family leave", "2026 rates"],
   },
   {
     id: "sick-pay-calculator",
@@ -89,7 +89,7 @@ const faqData: FAQItem[] = [
     answer:
       "Enter your working days per week, consecutive sick days, and average weekly pay. The calculator determines SSP eligibility (employee status, £125+ weekly, 4+ consecutive days) and calculates payment at £116.75/week for qualifying days only.",
     category: "Statutory Pay",
-    tags: ["sick pay", "ssp", "illness", "statutory", "2025 rates"],
+    tags: ["sick pay", "ssp", "illness", "statutory", "2026 rates"],
   },
   {
     id: "ssp-part-time",
@@ -137,9 +137,9 @@ const faqData: FAQItem[] = [
     id: "redundancy-calculator",
     question: "How does the Redundancy Pay Calculator work?",
     answer:
-      "Enter your age, years of service, and weekly pay. The calculator uses UK statutory redundancy rules: 0.5 weeks pay (under 22), 1 week (22-40), 1.5 weeks (41+) per year served, capped at 20 years and £643 weekly pay (2025 rates).",
+      "Enter your age, years of service, and weekly pay. The calculator uses UK statutory redundancy rules: 0.5 weeks pay (under 22), 1 week (22-40), 1.5 weeks (41+) per year served, capped at 20 years and £643 weekly pay (2026 rates).",
     category: "Redundancy & Bonuses",
-    tags: ["redundancy pay", "statutory", "job loss", "2025 rates"],
+    tags: ["redundancy pay", "statutory", "job loss", "2026 rates"],
   },
   {
     id: "bonus-calculator",
@@ -181,25 +181,25 @@ const faqData: FAQItem[] = [
     id: "uk-compliance",
     question: "Are the calculators compliant with UK employment law?",
     answer:
-      "Yes, all our calculators follow UK employment law principles, HMRC guidelines, and GOV.UK official rates. They're designed to provide accurate calculations based on current 2025/26 statutory rates and regulations. For additional tax compliance tools and detailed HMRC guidance, explore our partner's comprehensive tax calculator suite.",
+      "Yes, all our calculators follow UK employment law principles, HMRC guidelines, and GOV.UK official rates. They're designed to provide accurate calculations based on current 2026/26 statutory rates and regulations. For additional tax compliance tools and detailed HMRC guidance, explore our partner's comprehensive tax calculator suite.",
     category: "UK Employment Law",
-    tags: ["uk law", "hmrc", "compliance", "employment", "2025"],
+    tags: ["uk law", "hmrc", "compliance", "employment", "2026"],
   },
   {
-    id: "statutory-rates-2025",
-    question: "What are the 2025/26 statutory rates?",
+    id: "statutory-rates-2026",
+    question: "What are the 2026/26 statutory rates?",
     answer:
-      "2025/26 rates: SMP/SPP £187.18/week cap, SSP £116.75/week, minimum earnings £125/week, redundancy pay cap £643/week. All calculators use these current rates automatically.",
+      "2026/26 rates: SMP/SPP £187.18/week cap, SSP £116.75/week, minimum earnings £125/week, redundancy pay cap £643/week. All calculators use these current rates automatically.",
     category: "UK Employment Law",
-    tags: ["2025 rates", "statutory pay", "smp", "spp", "ssp", "redundancy"],
+    tags: ["2026 rates", "statutory pay", "smp", "spp", "ssp", "redundancy"],
   },
   {
     id: "minimum-wage",
     question: "Do the calculators consider minimum wage requirements?",
     answer:
-      "The calculators provide proportional salary calculations. You should ensure that your pro rata salary meets or exceeds the UK minimum wage requirements (£11.44/hour for 21+, April 2025) for your age and working hours.",
+      "The calculators provide proportional salary calculations. You should ensure that your pro rata salary meets or exceeds the UK minimum wage requirements (£11.44/hour for 21+, April 2026) for your age and working hours.",
     category: "UK Employment Law",
-    tags: ["minimum wage", "uk law", "requirements", "salary", "2025"],
+    tags: ["minimum wage", "uk law", "requirements", "salary", "2026"],
   },
   {
     id: "employment-rights",
@@ -265,9 +265,9 @@ const faqData: FAQItem[] = [
     id: "business-use",
     question: "Can businesses use these calculators?",
     answer:
-      "Absolutely! HR departments and employers can use our calculators to determine appropriate statutory payments, pro rata salaries, redundancy pay, and holiday entitlements. All calculators follow UK employment law and current 2025/26 rates.",
+      "Absolutely! HR departments and employers can use our calculators to determine appropriate statutory payments, pro rata salaries, redundancy pay, and holiday entitlements. All calculators follow UK employment law and current 2026/26 rates.",
     category: "Business Use",
-    tags: ["business", "employers", "hr", "statutory payments", "2025"],
+    tags: ["business", "employers", "hr", "statutory payments", "2026"],
   },
   {
     id: "payroll-departments",
@@ -423,7 +423,7 @@ export default function FAQPage() {
                 Find answers to common questions about our UK salary
                 calculators, including pro rata pay, statutory payments,
                 term-time contracts, redundancy, bonuses, and UK employment law
-                for 2025.
+                for 2026.
               </p>
             </motion.div>
 

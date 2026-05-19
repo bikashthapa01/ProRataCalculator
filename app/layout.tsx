@@ -6,17 +6,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title:
-    "Pro Rata Calculator UK 2025 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
+    "Pro Rata Calculator UK 2026 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
   description:
-    "Free UK pro rata calculator 2025 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
+    "Free UK pro rata calculator 2026 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
   keywords: [
-    "pro rata calculator UK 2025",
+    "pro rata calculator UK 2026",
     "pro rata salary calculator",
     "pro rata pay calculator",
     "part time salary calculator UK",
     "reduced hours calculator",
     "holiday entitlement calculator",
-    "UK pro rata calculator 2025",
+    "UK pro rata calculator 2026",
     "salary calculator UK",
     "part time pay calculator",
     "temporary work salary",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Pro Rata Calculator UK 2025 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
+      "Pro Rata Calculator UK 2026 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
     description:
-      "Free UK pro rata calculator 2025 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
+      "Free UK pro rata calculator 2026 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
     url: "https://proratacalculator.co.uk",
     siteName: "Pro Rata Calculator UK",
     locale: "en_GB",
@@ -53,16 +53,16 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Pro Rata Calculator UK 2025 - Calculate your pro rata salary and pay",
+        alt: "Pro Rata Calculator UK 2026 - Calculate your pro rata salary and pay",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Pro Rata Calculator UK 2025 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
+      "Pro Rata Calculator UK 2026 | Calculate Pro Rata Salary, Pay & Holiday Entitlement",
     description:
-      "Free UK pro rata calculator 2025 to work out your pro rata salary, pay, and holiday entitlement. HMRC compliant calculations.",
+      "Free UK pro rata calculator 2026 to work out your pro rata salary, pay, and holiday entitlement. HMRC compliant calculations.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -76,9 +76,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
   other: {
     "geo.region": "GB",
@@ -118,9 +115,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              name: "Pro Rata Calculator UK 2025",
+              name: "Pro Rata Calculator UK 2026",
               description:
-                "Free UK pro rata calculator 2025 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
+                "Free UK pro rata calculator 2026 to work out your pro rata salary, pay, and holiday entitlement. Calculate part-time, reduced hours, and temporary work pay accurately. HMRC compliant calculations.",
               url: "https://proratacalculator.co.uk",
               applicationCategory: "FinanceApplication",
               operatingSystem: "Any",
@@ -130,13 +127,6 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "Pro Rata Calculator UK",
                 url: "https://proratacalculator.co.uk",
-              },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.8",
-                ratingCount: "1247",
-                bestRating: "5",
-                worstRating: "1",
               },
               featureList: [
                 "Pro rata salary calculation",
@@ -149,7 +139,7 @@ export default function RootLayout({
               ],
               screenshot: "https://proratacalculator.co.uk/screenshot.jpg",
               releaseNotes:
-                "Updated for 2025 with enhanced features and UK compliance",
+                "Updated for 2026 with enhanced features and UK compliance",
               installUrl: "https://proratacalculator.co.uk",
               permissions: "none",
               memoryRequirements: "none",

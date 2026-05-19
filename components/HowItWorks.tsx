@@ -73,7 +73,7 @@ export default function HowItWorks() {
           <p className="text-primary-secondary text-lg max-w-2xl mx-auto">
             Our UK-compliant pro rata calculator makes it easy to work out your
             proportional salary. Follow these simple steps to get accurate
-            results for 2025.
+            results for 2026.
           </p>
         </motion.div>
 

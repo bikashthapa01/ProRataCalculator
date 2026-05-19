@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Calculator,
@@ -96,18 +96,6 @@ export default function ProRataCalculator() {
     return newErrors;
   };
 
-  // Update validation when inputs change (only if user has interacted)
-  useEffect(() => {
-    // This effect is no longer needed as errors are only shown on Calculate click
-    // setIsFormValid(
-    //   Object.keys(newErrors).length === 0 &&
-    //     inputs.fullTimeSalary > 0 &&
-    //     (calculationType === "hours"
-    //       ? inputs.actualHours > 0
-    //       : percentageValue > 0)
-    // );
-  }, [inputs, calculationType, percentageValue]);
-
   const handleCalculate = () => {
     const newErrors = validateForm();
     setErrors(newErrors);
@@ -136,7 +124,7 @@ export default function ProRataCalculator() {
   const handleCopyResults = async () => {
     if (!results) return;
 
-    const resultText = `Pro Rata Salary Results (2025):
+    const resultText = `Pro Rata Salary Results (2026):
 Yearly: ${formatCurrency(results.yearly)}
 Monthly: ${formatCurrency(results.monthly)}
 Weekly: ${formatCurrency(results.weekly)}
@@ -207,7 +195,7 @@ Percentage: ${formatPercentage(results.percentage)}`;
           <p className="text-primary-secondary text-lg max-w-2xl mx-auto">
             Enter your full-time salary and work pattern to calculate your pro
             rata equivalent. Perfect for part-time, reduced hours, or temporary
-            work arrangements. Updated for 2025 UK employment standards.
+            work arrangements. Updated for 2026 UK employment standards.
           </p>
         </motion.div>
 

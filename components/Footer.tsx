@@ -31,7 +31,7 @@ export default function Footer() {
                 <div className="font-bold text-xl text-primary-text">
                   Pro Rata Calculator
                 </div>
-                <div className="text-sm text-primary-secondary">UK 2025</div>
+                <div className="text-sm text-primary-secondary">UK 2026</div>
               </div>
             </Link>
             <p className="text-primary-secondary mb-6 max-w-md">
@@ -140,7 +140,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-primary-secondary text-sm">
-              © 2025 Pro Rata Calculator UK. All rights reserved.
+              © 2026 Pro Rata Calculator UK. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-primary-secondary">
               <span>HMRC Compliant</span>

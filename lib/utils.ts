@@ -61,10 +61,12 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
     averageWeeklyHours,
   } = inputs;
 
-  // 2025/26 SSP rates
+  // 2026/27 SSP rates
   const WEEKLY_SSP_RATE = 116.75;
   const MINIMUM_WEEKLY_EARNINGS = 123;
   const MINIMUM_SICK_DAYS = 4;
+  const WAITING_DAYS = 3; // first 3 qualifying days are unpaid waiting days
+  const MAX_SSP_WEEKS = 28; // SSP cap
 
   // Calculate weekly pay if not provided
   let weeklyPay = averageWeeklyPay;
@@ -112,11 +114,15 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
     totalQualifyingDays += workingDaysInThisWeek;
   }
 
-  // Ensure we don't exceed the actual sick days
-  totalQualifyingDays = Math.min(totalQualifyingDays, sickDays);
+  // Ensure we don't exceed the actual sick days or the 28-week SSP cap
+  const maxQualifyingDays = MAX_SSP_WEEKS * workingDaysPerWeek;
+  totalQualifyingDays = Math.min(totalQualifyingDays, sickDays, maxQualifyingDays);
+
+  // First 3 qualifying days are unpaid waiting days (HMRC SSP rules)
+  const paidQualifyingDays = Math.max(0, totalQualifyingDays - WAITING_DAYS);
 
   // Calculate total SSP
-  const totalSSP = dailySSPRate * totalQualifyingDays;
+  const totalSSP = dailySSPRate * paidQualifyingDays;
 
   // Calculate period covered (in weeks)
   const periodCovered = Math.ceil(sickDays / 7);
@@ -127,7 +133,7 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
       label: "Weekly SSP Rate",
       value: WEEKLY_SSP_RATE,
       formattedValue: formatCurrency(WEEKLY_SSP_RATE),
-      description: "Standard weekly SSP rate for 2025/26",
+      description: "Standard weekly SSP rate for 2026/27",
       icon: "pound-sterling",
     },
     {
@@ -147,19 +153,33 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
       icon: "calculator",
     },
     {
-      label: "Qualifying Days",
+      label: "Total Qualifying Days",
       value: totalQualifyingDays,
       formattedValue: `${totalQualifyingDays} days`,
       description: `Working days during your ${sickDays}-day sick period`,
       icon: "check-circle",
     },
     {
+      label: "Waiting Days (unpaid)",
+      value: WAITING_DAYS,
+      formattedValue: `${Math.min(WAITING_DAYS, totalQualifyingDays)} days`,
+      description: "First 3 qualifying days are unpaid under HMRC SSP rules",
+      icon: "clock",
+    },
+    {
+      label: "Paid Qualifying Days",
+      value: paidQualifyingDays,
+      formattedValue: `${paidQualifyingDays} days`,
+      description: `Qualifying days minus 3 waiting days`,
+      icon: "calendar",
+    },
+    {
       label: "Total SSP",
       value: totalSSP,
       formattedValue: formatCurrency(totalSSP),
-      description: `Daily rate × qualifying days (${formatCurrency(
+      description: `Daily rate × paid qualifying days (${formatCurrency(
         dailySSPRate
-      )} × ${totalQualifyingDays})`,
+      )} × ${paidQualifyingDays})`,
       icon: "trending-up",
     },
   ];
@@ -167,7 +187,7 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
   // Generate explanation
   const explanation = `You qualify for SSP! You'll receive ${formatCurrency(
     totalSSP
-  )} for ${totalQualifyingDays} qualifying days over ${periodCovered} week${
+  )} for ${paidQualifyingDays} paid qualifying days (${totalQualifyingDays} total minus ${Math.min(WAITING_DAYS, totalQualifyingDays)} unpaid waiting days) over ${periodCovered} week${
     periodCovered > 1 ? "s" : ""
   }. Your daily SSP rate is ${formatCurrency(
     dailySSPRate
@@ -177,7 +197,7 @@ export function calculateSSP(inputs: SSPInputs): SSPResults {
     isEligible: true,
     totalSSP: Math.round(totalSSP * 100) / 100,
     dailySSPRate: Math.round(dailySSPRate * 100) / 100,
-    qualifyingDays: totalQualifyingDays,
+    qualifyingDays: paidQualifyingDays,
     periodCovered,
     weeklySSP: WEEKLY_SSP_RATE,
     explanation,
@@ -324,9 +344,9 @@ export function calculateSPP(inputs: SPPInputs): SPPResults {
     averageWeeklyHours,
   } = inputs;
 
-  // 2025/26 SPP rates - same as SMP for the 33-week period
+  // 2026/27 SPP rates
   const SPP_WEEKLY_CAP = 187.18;
-  const MIN_WEEKLY_EARNINGS = 125; // Updated for 2025/26
+  const MIN_WEEKLY_EARNINGS = 125;
   const MIN_WEEKS_EMPLOYED = 26;
   const QUALIFYING_WEEK_OFFSET = 15; // 15 weeks before expected childbirth
 
@@ -402,7 +422,7 @@ export function calculateSPP(inputs: SPPInputs): SPPResults {
       label: "Statutory Weekly Cap",
       value: SPP_WEEKLY_CAP,
       formattedValue: formatCurrency(SPP_WEEKLY_CAP),
-      description: "Maximum SPP rate for 2025/26",
+      description: "Maximum SPP rate for 2026/27",
       icon: "shield",
     },
     {

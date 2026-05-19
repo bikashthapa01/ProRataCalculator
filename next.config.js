@@ -13,11 +13,7 @@ const nextConfig = {
 
   // Image optimization
   images: {
-    domains: [
-      "proratacalculator.co.uk",
-      "cms.proratacalculator.co.uk",
-      "secure.gravatar.com",
-    ],
+    domains: ["proratacalculator.co.uk"],
     formats: ["image/webp", "image/avif"],
   },
 
